@@ -3,7 +3,8 @@ package org.edge.json.format;
 import java.util.ArrayList;
 
 public class EdgeData {
-  private String version = "json-1.0";
+  private static final String DEFAULT_VERSION = "json-1.0";
+  private String version = null;
   private ArrayList<EdgeElement> edgeElements = null;
   
   public EdgeData(String version, ArrayList<EdgeElement> edgeElements){
@@ -17,10 +18,12 @@ public class EdgeData {
   }
   
   public EdgeData(ArrayList<EdgeElement> edgeElements){
+    this.version = DEFAULT_VERSION;
     this.edgeElements = edgeElements;
   }
   
   public EdgeData(EdgeElement edgeElement){
+    this.version = DEFAULT_VERSION;
     edgeElements = new ArrayList<EdgeElement>();
     edgeElements.add(edgeElement);
   }
@@ -32,6 +35,7 @@ public class EdgeData {
   }
   
   public EdgeData(){
+    this.version = DEFAULT_VERSION;
     edgeElements = new ArrayList<EdgeElement>();
   }
   

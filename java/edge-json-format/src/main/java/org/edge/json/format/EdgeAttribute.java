@@ -2,12 +2,12 @@ package org.edge.json.format;
 
 public class EdgeAttribute {
   private String name = null;
-  private String data_type = null;
+  private String dataType = null;
   private Object value = null;
 
-  public EdgeAttribute(String name, String data_type, Object value) {
+  public EdgeAttribute(String name, String dataType, Object value) {
     this.name = name;
-    this.data_type = data_type;
+    this.dataType = dataType;
     this.value = value;
   }
 
@@ -19,19 +19,19 @@ public class EdgeAttribute {
     this.name = name;
   }
 
-  public String getData_type() {
-    return data_type;
+  public String getDataType() {
+    return dataType;
   }
 
-  public void setData_type(String data_type) {
-    this.data_type = data_type;
+  public void setDataType(String dataType) {
+    this.dataType = dataType;
   }
 
   public Object getValue() {
     return value;
   }
-
-  public void setValue(String value) {
+  
+  public void setValue(Object value) {
     this.value = value;
   }
 
