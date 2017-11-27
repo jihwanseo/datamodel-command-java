@@ -47,10 +47,10 @@ public class EdgeJsonFormatterTest {
 
   @Test
   public void testGeneratorJSON() throws Exception {
-	  logger.info("[TEST] testGeneratorJSON");
-	  EdgeJsonFormatter.decodeJsonStringToEdgeData(null);
+    logger.info("[TEST] testGeneratorJSON");
+    EdgeJsonFormatter.decodeJsonStringToEdgeData(null);
   }
-  
+
   @Test
   public void testParsingJSON2() throws Exception {
     logger.info("[TEST] testParsingJSON2");
@@ -62,7 +62,7 @@ public class EdgeJsonFormatterTest {
 
   @Test
   public void testGeneratorJSON2() throws Exception {
-	  logger.info("[TEST] testGeneratorJSON2");
-	  EdgeJsonFormatter.decodeJsonStringToEdgeData("");
+    logger.info("[TEST] testGeneratorJSON2");
+    EdgeJsonFormatter.decodeJsonStringToEdgeData("");
   }
 }
