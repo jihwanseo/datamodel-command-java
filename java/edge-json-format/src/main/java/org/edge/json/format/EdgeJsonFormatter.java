@@ -2,7 +2,7 @@ package org.edge.json.format;
 
 import com.google.gson.Gson;
 
-public class JsonFormatter {
+public class EdgeJsonFormatter {
   private static Gson gson = new Gson();
 
   public static String encodeEdgeDataToJsonString(EdgeData edgeData) {
