@@ -1,4 +1,4 @@
-package org.edge.json.format;
+package org.command.json.format;
 
 import java.util.ArrayList;
 

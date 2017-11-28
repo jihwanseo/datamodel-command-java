@@ -15,11 +15,10 @@
  * the License.
  *
  ******************************************************************/
+package org.command.json.format;
 
-package src.test.java;
-
-import org.edge.json.format.EdgeData;
-import org.edge.json.format.EdgeJsonFormatter;
+import org.command.json.format.EdgeData;
+import org.command.json.format.EdgeJsonFormatter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package org.edge.json.format;
+package org.command.json.format;
 
 import com.google.gson.Gson;
 
