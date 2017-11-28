@@ -1,4 +1,4 @@
-package org.edge.json.format;
+package org.command.json.format;
 
 public enum EdgeFormatIdentifier {
   DEFAULT_VERSION(0, "edge-1.0", "edge-json-format version"),

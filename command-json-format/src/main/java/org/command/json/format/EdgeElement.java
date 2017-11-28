@@ -1,4 +1,4 @@
-package org.edge.json.format;
+package org.command.json.format;
 
 import java.util.ArrayList;
 
@@ -18,11 +18,11 @@ public class EdgeElement {
     this.edgeAttributes = edgeAttributes;
   }
 
-  public void setEdgeElement(ArrayList<EdgeAttribute> edgeAttributes) {
+  public void setAttributeList(ArrayList<EdgeAttribute> edgeAttributes) {
     this.edgeAttributes = edgeAttributes;
   }
 
-  public ArrayList<EdgeAttribute> getEdgeElement() {
+  public ArrayList<EdgeAttribute> getAttributeList() {
     return edgeAttributes;
   }
 }
