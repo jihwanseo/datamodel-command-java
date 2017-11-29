@@ -1,22 +1,23 @@
 package org.command.json.format;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EdgeData {
   private String version = null;
-  private String protocolCategory = null;
-  private ArrayList<EdgeElement> edgeElements = null;
+  private String dataTitle = null;
+  private List<EdgeElement> edgeElements = null;
 
-  public EdgeData(String version, String protocolCategory, ArrayList<EdgeElement> edgeElements) {
-    this.version = version;
-    this.protocolCategory = protocolCategory;
-    this.edgeElements = edgeElements;
+  public EdgeData(String version, String dataTitle, List<EdgeElement> edgeElementList) {
+    this.setVersion(version);
+    this.setDataTitle(dataTitle);
+    this.setEdgeElementList(edgeElementList);
   }
 
-  public EdgeData(String version, String protocolCategory) {
-    this.version = version;
-    this.protocolCategory = protocolCategory;
-    this.edgeElements = new ArrayList<EdgeElement>();
+  public EdgeData(String version, String dataTitle) {
+    this.setVersion(version);
+    this.setDataTitle(dataTitle);
+    this.setEdgeElementList(new ArrayList<EdgeElement>());
   }
 
   public void setVersion(String version) {
@@ -27,19 +28,19 @@ public class EdgeData {
     return version;
   }
 
-  public void setEdgeElementList(ArrayList<EdgeElement> edgeElements) {
+  public void setEdgeElementList(List<EdgeElement> edgeElements) {
     this.edgeElements = edgeElements;
   }
 
-  public ArrayList<EdgeElement> getEdgeElementList() {
+  public List<EdgeElement> getEdgeElementList() {
     return edgeElements;
   }
 
-  public void setProtocolCategory(String protocolCategory) {
-    this.protocolCategory = protocolCategory;
+  public void setDataTitle(String dataTitle) {
+    this.dataTitle = dataTitle;
   }
 
-  public String getProtocolCategory() {
-    return protocolCategory;
+  public String getDataTitle() {
+    return dataTitle;
   }
 }
