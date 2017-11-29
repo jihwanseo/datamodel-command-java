@@ -1,28 +1,35 @@
 package org.command.json.format;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EdgeElement {
-  private ArrayList<EdgeAttribute> edgeAttributes = null;
+  private String elementTitle = null;
+  private List<EdgeAttribute> edgeAttributes = null;
 
-  public EdgeElement() {
-    edgeAttributes = new ArrayList<EdgeAttribute>();
+  public EdgeElement(String elementTitle) {
+    this.setElementTitle(elementTitle);
+    this.setEdgeAttributeList(new ArrayList<EdgeAttribute>());
   }
 
-  public EdgeElement(EdgeAttribute edgeAttribute) {
-    edgeAttributes = new ArrayList<EdgeAttribute>();
-    edgeAttributes.add(edgeAttribute);
+  public EdgeElement(String elementTitle, List<EdgeAttribute> edgeAttributes) {
+    this.setElementTitle(elementTitle);
+    this.setEdgeAttributeList(edgeAttributes);
   }
 
-  public EdgeElement(ArrayList<EdgeAttribute> edgeAttributes) {
+  public void setEdgeAttributeList(List<EdgeAttribute> edgeAttributes) {
     this.edgeAttributes = edgeAttributes;
   }
 
-  public void setAttributeList(ArrayList<EdgeAttribute> edgeAttributes) {
-    this.edgeAttributes = edgeAttributes;
-  }
-
-  public ArrayList<EdgeAttribute> getAttributeList() {
+  public List<EdgeAttribute> getEdgeAttributeList() {
     return edgeAttributes;
+  }
+
+  public String getElementTitle() {
+    return elementTitle;
+  }
+
+  public void setElementTitle(String elementTitle) {
+    this.elementTitle = elementTitle;
   }
 }

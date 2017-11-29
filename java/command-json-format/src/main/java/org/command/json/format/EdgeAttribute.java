@@ -6,9 +6,9 @@ public class EdgeAttribute {
   private Object value = null;
 
   public EdgeAttribute(String name, String dataType, Object value) {
-    this.name = name;
-    this.dataType = dataType;
-    this.value = value;
+    this.setName(name);
+    this.setDataType(dataType);
+    this.setValue(value);
   }
 
   public String getName() {
