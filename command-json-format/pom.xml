@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.command.json.format</groupId>
-	<artifactId>command-json-format</artifactId>
+	<artifactId>datamodel-command-java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>command-json-format</name>
-	<description>command json formatter</description>
+	<name>datamodel-command-java</name>
+	<description>datamodel command java</description>
 
 	<dependencies>
 		<dependency>
