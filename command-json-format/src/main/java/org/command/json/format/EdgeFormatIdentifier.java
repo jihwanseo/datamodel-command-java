@@ -9,11 +9,11 @@ public enum EdgeFormatIdentifier {
   PLC_TYPE(12, "plc", "PLC protocol type"),
 
   //Data Type
-  STRING_TYPE(12, "string", "string data type"),
-  INTEGER_TYPE(12, "integer", "integer data type"),
-  FLOAT_TYPE(12, "float", "float data type"),
-  ATTRIBUTES_TYPE(12, "attributes", "attribute list data type");
-  
+  ATTRIBUTES_TYPE(20, "attributes", "attribute list data type"),
+  STRING_TYPE(21, "string", "string data type"),
+  INTEGER_TYPE(22, "integer", "integer data type"),
+  FLOAT_TYPE(23, "float", "float data type"),
+  DOUBLE_TYPE(24, "double", "double data type");
   
   private int code;
   private String value;
