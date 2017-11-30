@@ -1,5 +1,6 @@
 package org.command.json.format;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -20,7 +21,7 @@ public class EdgeJsonFormatter {
 			if (edgeAttr.getName().equals(edgeAttributeName) == true) {
 				return edgeAttr.getValue();
 			} else if (edgeAttr.getDataType().equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-				return getObjectValueByName((List<EdgeAttribute>) edgeAttr.getValue(), edgeAttributeName);
+				return getObjectValueByName(covertAttrubiteListFromObject(edgeAttr.getValue()), edgeAttributeName);
 			}
 		}
 		return null;
@@ -32,7 +33,7 @@ public class EdgeJsonFormatter {
 					&& edgeAttr.getName().equalsIgnoreCase(EdgeFormatIdentifier.STRING_TYPE.getValue())) {
 				return String.valueOf(edgeAttr.getValue());
 			} else if (edgeAttr.getDataType().equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-				return getStringValueByName((List<EdgeAttribute>) edgeAttr.getValue(), edgeAttributeName);
+				return getStringValueByName(covertAttrubiteListFromObject(edgeAttr.getValue()), edgeAttributeName);
 			}
 		}
 		return null;
@@ -44,7 +45,7 @@ public class EdgeJsonFormatter {
 					&& edgeAttr.getName().equalsIgnoreCase(EdgeFormatIdentifier.DOUBLE_TYPE.getValue())) {
 				return (Double) edgeAttr.getValue();
 			} else if (edgeAttr.getDataType().equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-				return getDoubleValueByName((List<EdgeAttribute>) edgeAttr.getValue(), edgeAttributeName);
+				return getDoubleValueByName(covertAttrubiteListFromObject(edgeAttr.getValue()), edgeAttributeName);
 			}
 		}
 		return 0.0;
@@ -56,7 +57,8 @@ public class EdgeJsonFormatter {
 					&& edgeAttr.getName().equalsIgnoreCase(EdgeFormatIdentifier.INTEGER_TYPE.getValue())) {
 				return (Integer) edgeAttr.getValue();
 			} else if (edgeAttr.getDataType().equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-				return getIntegerValueByName((List<EdgeAttribute>) edgeAttr.getValue(), edgeAttributeName);
+				
+				return getIntegerValueByName(covertAttrubiteListFromObject(edgeAttr.getValue()), edgeAttributeName);
 			}
 		}
 		return 0;
@@ -68,9 +70,18 @@ public class EdgeJsonFormatter {
 					&& edgeAttr.getName().equalsIgnoreCase(EdgeFormatIdentifier.FLOAT_TYPE.getValue())) {
 				return (Float) edgeAttr.getValue();
 			} else if (edgeAttr.getDataType().equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-				return getFloatValueByName((List<EdgeAttribute>) edgeAttr.getValue(), edgeAttributeName);
+				return getFloatValueByName(covertAttrubiteListFromObject(edgeAttr.getValue()), edgeAttributeName);
 			}
 		}
 		return 0.0f;
+	}
+	
+	private static List<EdgeAttribute> covertAttrubiteListFromObject(Object obj){
+		ArrayList arr = (ArrayList) obj;
+		List<EdgeAttribute> attributeList = new ArrayList<EdgeAttribute>();
+		for (int i = 0; i < arr.size(); i++) {
+			attributeList.add((EdgeAttribute) arr.get(i));
+		}
+		return attributeList;
 	}
 }
