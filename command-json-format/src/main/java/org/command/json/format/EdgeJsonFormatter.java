@@ -47,7 +47,7 @@ public class EdgeJsonFormatter {
 				return getDoubleValueByName((List<EdgeAttribute>) edgeAttr.getValue(), edgeAttributeName);
 			}
 		}
-		return -1.0;
+		return 0.0;
 	}
 
 	public static Integer getIntegerValueByName(List<EdgeAttribute> edgeAttributeList, String edgeAttributeName) {
@@ -59,10 +59,10 @@ public class EdgeJsonFormatter {
 				return getIntegerValueByName((List<EdgeAttribute>) edgeAttr.getValue(), edgeAttributeName);
 			}
 		}
-		return -1;
+		return 0;
 	}
 
-	public static float getFloatValueByName(List<EdgeAttribute> edgeAttributeList, String edgeAttributeName) {
+	public static Float getFloatValueByName(List<EdgeAttribute> edgeAttributeList, String edgeAttributeName) {
 		for (EdgeAttribute edgeAttr : edgeAttributeList) {
 			if (edgeAttr.getName().equals(edgeAttributeName) == true
 					&& edgeAttr.getName().equalsIgnoreCase(EdgeFormatIdentifier.FLOAT_TYPE.getValue())) {
@@ -71,6 +71,6 @@ public class EdgeJsonFormatter {
 				return getFloatValueByName((List<EdgeAttribute>) edgeAttr.getValue(), edgeAttributeName);
 			}
 		}
-		return (float) 0.0;
+		return 0.0f;
 	}
 }
