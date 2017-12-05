@@ -15,6 +15,14 @@ public class EdgeJsonFormatter {
 	public static EdgeData decodeJsonStringToEdgeData(String json) {
 		return gson.fromJson(json, EdgeData.class);
 	}
+	
+	public static String encodeEdgeElementToJsonString(EdgeElement edgeData) {
+      return gson.toJson(edgeData);
+  }
+
+  public static EdgeElement decodeJsonStringToEdgeElement(String json) {
+      return gson.fromJson(json, EdgeElement.class);
+  }
 
 	public static Object getObjectValueByName(List<EdgeAttribute> edgeAttributeList, String edgeAttributeName) {
 		for (EdgeAttribute edgeAttr : edgeAttributeList) {
