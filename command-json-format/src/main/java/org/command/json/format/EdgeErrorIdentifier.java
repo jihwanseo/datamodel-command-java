@@ -2,9 +2,9 @@ package org.command.json.format;
 
 public enum EdgeErrorIdentifier {
   EDGE_DS_ERROR_RESPONSE_NULL(0, "edge_ds_error_response_null", 
-      "Edge DeviceService Response from Device is null"),
+      "Edge DeviceService Response is null"),
   EDGE_DS_ERROR_RESPONSE_TIME_OUT(1, "edge_ds_error_time_out", 
-      "Edge DeviceService Response from Device is time out");
+      "Edge DeviceService Response is time out");
 
   private int code;
   private String value;
