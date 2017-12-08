@@ -10,6 +10,13 @@ public enum EdgeErrorIdentifier {
   private String value;
   private String description;
 
+  /**
+   * @fn EdgeErrorIdentifier(int code, String value, String description)
+   * @brief constructor
+   * @param [in] code @int
+   * @param [in] value @String
+   * @param [in] description @String
+   */
   private EdgeErrorIdentifier(int code, String value, String description) {
     this.code = code;
     this.value = value;
