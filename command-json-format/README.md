@@ -1,7 +1,5 @@
 # datamodel-command-java
 
-<br></br>
-
 ## How to Build
 
 ### Linux command line
@@ -26,4 +24,4 @@
 3. On successful build it will create a jar:
   ~/datamodel-command-java/command-json-format/target/datamodel-command-java-0.0.1-SNAPSHOT.jar
 
-## Pre-Requirements to build datamodel-command-java [here](./README.md)
+### Pre-Requirements to build datamodel-command-java [here](./README.md)
