@@ -29,21 +29,15 @@ import org.slf4j.LoggerFactory;
 public class EdgeDataTest {
   private final Logger logger = LoggerFactory.getLogger(getClass());
 
+  //for EdgeData construct test
   private static EdgeData testEdgeData = null;
   private static EdgeData testEdgeDataWithoutElements = null;
-
+  //for EdgeData encode/decode test
   private static EdgeData testEdgeDataHasElements = null;
   private static EdgeData testEdgeDataElementsIsNull = null;
-
   private static EdgeData testEdgeDataVersionIsNull = null;
   private static EdgeData testEdgeDataDataTitleIsNull = null;
   private static EdgeData testEdgeDataElementIsEmpty = null;
-
-
-  private static final String VERION = "version";
-  private static final String DATA_TITLE = "dataTitle";
-  private static final String ELEMENT_TITLE = "elementTitle";
-
   private static EdgeElement testEdgeElement = null;
 
   @BeforeClass
@@ -51,14 +45,17 @@ public class EdgeDataTest {
     testEdgeData = null;
     testEdgeDataWithoutElements = null;
 
-    testEdgeElement = new EdgeElement(ELEMENT_TITLE);
-    testEdgeDataHasElements = new EdgeData(VERION, DATA_TITLE);
+    testEdgeElement = new EdgeElement(TestDefaultValue.ELEMENT_TITLE.getValue());
+    testEdgeDataHasElements =
+        new EdgeData(TestDefaultValue.VERSION.getValue(), TestDefaultValue.DATA_TITLE.getValue());
     testEdgeDataHasElements.getEdgeElementList().add(testEdgeElement);
 
-    testEdgeDataElementsIsNull = new EdgeData(VERION, DATA_TITLE, null);
-    testEdgeDataVersionIsNull = new EdgeData(null, DATA_TITLE);
-    testEdgeDataDataTitleIsNull = new EdgeData(VERION, null);
-    testEdgeDataElementIsEmpty = new EdgeData(VERION, DATA_TITLE);
+    testEdgeDataElementsIsNull = new EdgeData(TestDefaultValue.VERSION.getValue(),
+        TestDefaultValue.DATA_TITLE.getValue(), null);
+    testEdgeDataVersionIsNull = new EdgeData(null, TestDefaultValue.DATA_TITLE.getValue());
+    testEdgeDataDataTitleIsNull = new EdgeData(TestDefaultValue.VERSION.getValue(), null);
+    testEdgeDataElementIsEmpty =
+        new EdgeData(TestDefaultValue.VERSION.getValue(), TestDefaultValue.DATA_TITLE.getValue());
   }
 
   @AfterClass
@@ -67,7 +64,8 @@ public class EdgeDataTest {
   @Test
   public void test_EdgeData_Construct() throws Exception {
     logger.info("[TEST] test_EdgeData_Construct");
-    testEdgeData = new EdgeData(VERION, DATA_TITLE, new ArrayList<EdgeElement>());
+    testEdgeData = new EdgeData(TestDefaultValue.VERSION.getValue(),
+        TestDefaultValue.DATA_TITLE.getValue(), new ArrayList<EdgeElement>());
     assertNotNull(testEdgeData);
     logger.info("[PASS] test_EdgeData_Construct");
   }
@@ -75,7 +73,8 @@ public class EdgeDataTest {
   @Test
   public void test_EdgeElement_Construct_Without_EdgeAttributes() throws Exception {
     logger.info("[TEST] test_EdgeElement_Construct_Without_EdgeAttributes");
-    testEdgeDataWithoutElements = new EdgeData(VERION, DATA_TITLE);
+    testEdgeDataWithoutElements =
+        new EdgeData(TestDefaultValue.VERSION.getValue(), TestDefaultValue.DATA_TITLE.getValue());
     assertNotNull(testEdgeDataWithoutElements);
     logger.info("[PASS] test_EdgeElement_Construct_Without_EdgeAttributes");
   }
@@ -106,8 +105,7 @@ public class EdgeDataTest {
   @Test
   public void test_EncodeEdgeDataToJsonString_EdgeElement_Is_Null() throws Exception {
     logger.info("[TEST] test_EncodeEdgeDataToJsonString_EdgeElement_Is_Null");
-    String jsonString =
-        EdgeJsonFormatter.encodeEdgeDataToJsonString(testEdgeDataElementsIsNull);
+    String jsonString = EdgeJsonFormatter.encodeEdgeDataToJsonString(testEdgeDataElementsIsNull);
     EdgeData result = EdgeJsonFormatter.decodeJsonStringToEdgeData(jsonString);
     assertEquals(result, null);
     logger.info("[PASS] test_EncodeEdgeDataToJsonString_EdgeElement_Is_Null");
@@ -116,8 +114,7 @@ public class EdgeDataTest {
   @Test
   public void test_EncodeEdgeDataToJsonString_EdgeElement_Is_Empty() throws Exception {
     logger.info("[TEST] test_EncodeEdgeDataToJsonString_EdgeElement_Is_Empty");
-    String jsonString =
-        EdgeJsonFormatter.encodeEdgeDataToJsonString(testEdgeDataElementIsEmpty);
+    String jsonString = EdgeJsonFormatter.encodeEdgeDataToJsonString(testEdgeDataElementIsEmpty);
     EdgeData result = EdgeJsonFormatter.decodeJsonStringToEdgeData(jsonString);
     assertEquals(testEdgeDataElementIsEmpty.getDataTitle(), result.getDataTitle());
     assertEquals(testEdgeDataElementIsEmpty.getVersion(), result.getVersion());
@@ -128,18 +125,16 @@ public class EdgeDataTest {
   @Test
   public void test_EncodeEdgeDatatToJsonString_DataTiTle_Is_Null() throws Exception {
     logger.info("[TEST] test_EncodeEdgeDatatToJsonString_DataTiTle_Is_Null");
-    String jsonString =
-        EdgeJsonFormatter.encodeEdgeDataToJsonString(testEdgeDataDataTitleIsNull);
+    String jsonString = EdgeJsonFormatter.encodeEdgeDataToJsonString(testEdgeDataDataTitleIsNull);
     EdgeData result = EdgeJsonFormatter.decodeJsonStringToEdgeData(jsonString);
     assertEquals(result, null);
     logger.info("[PASS] test_EncodeEdgeDatatToJsonString_DataTiTle_Is_Null");
   }
-  
+
   @Test
   public void test_EncodeEdgeDatatToJsonString_Version_Is_Null() throws Exception {
     logger.info("[TEST] test_EncodeEdgeDatatToJsonString_Version_Is_Null");
-    String jsonString =
-        EdgeJsonFormatter.encodeEdgeDataToJsonString(testEdgeDataVersionIsNull);
+    String jsonString = EdgeJsonFormatter.encodeEdgeDataToJsonString(testEdgeDataVersionIsNull);
     EdgeData result = EdgeJsonFormatter.decodeJsonStringToEdgeData(jsonString);
     assertEquals(result, null);
     logger.info("[PASS] test_EncodeEdgeDatatToJsonString_Version_Is_Null");

@@ -29,36 +29,31 @@ import org.slf4j.LoggerFactory;
 public class EdgeElementTest {
   private final Logger logger = LoggerFactory.getLogger(getClass());
 
+  //for EdgeElement construct test
   private static EdgeElement testEdgeElement = null;
   private static EdgeElement testEdgeElementWithoutAttributes = null;
 
+  //for EdgeElement encode/decode test
   private static EdgeElement testEdgeElementHasAttributes = null;
   private static EdgeElement testEdgeElementAttributesIsNull = null;
-
   private static EdgeElement testEdgeElementElementTitleIsNull = null;
   private static EdgeElement testEdgeElementAttributesIsEmpty = null;
-
-  private static final String ELEMENT_TITLE = "elementTitle";
-
   private static EdgeAttribute testEdgeAttribute = null;
-
-  private static final String NAME = "name";
-  private static final String DATATYPE = EdgeFormatIdentifier.STRING_TYPE.getValue();
-  private static final String VALUE = "value";
 
   @BeforeClass
   public static void start() {
     testEdgeElement = null;
     testEdgeElementWithoutAttributes = null;
 
-    testEdgeAttribute = new EdgeAttribute(NAME, DATATYPE, VALUE);
-    testEdgeElementHasAttributes = new EdgeElement(ELEMENT_TITLE);
+    testEdgeAttribute = new EdgeAttribute(TestDefaultValue.STRING_NAME.getValue(),
+        EdgeFormatIdentifier.STRING_TYPE.getValue(), TestDefaultValue.STRING_VALUE);
+    testEdgeElementHasAttributes = new EdgeElement(TestDefaultValue.ELEMENT_TITLE.getValue());
     testEdgeElementHasAttributes.getEdgeAttributeList().add(testEdgeAttribute);
 
-    testEdgeElementAttributesIsNull = new EdgeElement(ELEMENT_TITLE, null);
+    testEdgeElementAttributesIsNull =
+        new EdgeElement(TestDefaultValue.ELEMENT_TITLE.getValue(), null);
     testEdgeElementElementTitleIsNull = new EdgeElement(null);
-
-    testEdgeElementAttributesIsEmpty = new EdgeElement(ELEMENT_TITLE);
+    testEdgeElementAttributesIsEmpty = new EdgeElement(TestDefaultValue.ELEMENT_TITLE.getValue());
   }
 
   @AfterClass
@@ -67,7 +62,8 @@ public class EdgeElementTest {
   @Test
   public void test_EdgeElement_Construct() throws Exception {
     logger.info("[TEST] test_EdgeElement_Construct");
-    testEdgeElement = new EdgeElement(ELEMENT_TITLE, new ArrayList<EdgeAttribute>());
+    testEdgeElement =
+        new EdgeElement(TestDefaultValue.ELEMENT_TITLE.getValue(), new ArrayList<EdgeAttribute>());
     assertNotNull(testEdgeElement);
     logger.info("[PASS] test_EdgeElement_Construct");
   }
@@ -75,7 +71,7 @@ public class EdgeElementTest {
   @Test
   public void test_EdgeElement_Construct_Without_EdgeAttributes() throws Exception {
     logger.info("[TEST] test_EdgeElement_Construct_Without_EdgeAttributes");
-    testEdgeElementWithoutAttributes = new EdgeElement(ELEMENT_TITLE);
+    testEdgeElementWithoutAttributes = new EdgeElement(TestDefaultValue.ELEMENT_TITLE.getValue());
     assertNotNull(testEdgeElementWithoutAttributes);
     logger.info("[PASS] test_EdgeElement_Construct_Without_EdgeAttributes");
   }

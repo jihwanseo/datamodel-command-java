@@ -31,61 +31,55 @@ import org.slf4j.LoggerFactory;
 public class EdgeAttributeTest {
   private final Logger logger = LoggerFactory.getLogger(getClass());
 
+  // for EdgeAttribute construct test
   private static EdgeAttribute testEdgeAttribute = null;
 
+  // for EdgeAttribute encode/decode test
   private static EdgeAttribute testEdgeAttributeString = null;
   private static EdgeAttribute testEdgeAttributeDouble = null;
   private static EdgeAttribute testEdgeAttributeInteger = null;
   private static EdgeAttribute testEdgeAttributeFloat = null;
   private static EdgeAttribute testEdgeAttributeAttributesHasAll = null;
   private static EdgeAttribute testEdgeAttributeAttributesIsEmpty = null;
-
   private static EdgeAttribute testEdgeAttributeNameIsNull = null;
   private static EdgeAttribute testEdgeAttributeDataTypeIsNull = null;
   private static EdgeAttribute testEdgeAttributeValueIsNull = null;
   private static EdgeAttribute testEdgeAttributeDataTypeAndValueUnmatch = null;
-
-  private static final String STRING_NAME = "edgeAttribute_string";
-  private static final String STRING_DATATYPE = EdgeFormatIdentifier.STRING_TYPE.getValue();
-  private static final String STRING_VALUE = "value";
-  private static final String DOUBLE_NAME = "edgeAttribute_double";
-  private static final String DOUBLE_DATATYPE = EdgeFormatIdentifier.DOUBLE_TYPE.getValue();
-  private static final Double DOUBLE_VALUE = 0.5;
-  private static final String INTEGER_NAME = "edgeAttribute_integer";
-  private static final String INTEGER_DATATYPE = EdgeFormatIdentifier.INTEGER_TYPE.getValue();
-  private static final Integer INTEGER_VALUE = 1;
-  private static final String FLOAT_NAME = "edgeAttribute_float";
-  private static final String FLOAT_DATATYPE = EdgeFormatIdentifier.FLOAT_TYPE.getValue();
-  private static final Float FLOAT_VALUE = 1.0f;
-  private static final String ATTRIBUTES_NAME = "edgeAttribute_attirbutes";
-  private static final String ATTRIBUTES_DATATYPE = EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue();
-  private static final List<EdgeAttribute> testEdgeAttributeListIsEmpty =
-      new ArrayList<EdgeAttribute>();
+  // for depth test
+  private static List<EdgeAttribute> testEdgeAttributeListIsEmpty = null;
   private static List<EdgeAttribute> testEdgeAttributeListHasAll = null;
-  private static final String UNMATCH_NAME = "edgeAttribute_unmatch";
-  private static final String UNMATCH_DATATYPE = EdgeFormatIdentifier.STRING_TYPE.getValue();
-  private static final Double UNMATCH_VALUE = 1.0;
 
   @BeforeClass
   public static void start() {
     testEdgeAttribute = null;
-    testEdgeAttributeString = new EdgeAttribute(STRING_NAME, STRING_DATATYPE, STRING_VALUE);
-    testEdgeAttributeDouble = new EdgeAttribute(DOUBLE_NAME, DOUBLE_DATATYPE, DOUBLE_VALUE);
-    testEdgeAttributeInteger = new EdgeAttribute(INTEGER_NAME, INTEGER_DATATYPE, INTEGER_VALUE);
-    testEdgeAttributeFloat = new EdgeAttribute(FLOAT_NAME, FLOAT_DATATYPE, FLOAT_VALUE);
+    testEdgeAttributeString = new EdgeAttribute(TestDefaultValue.STRING_NAME.getValue(),
+        EdgeFormatIdentifier.STRING_TYPE.getValue(), TestDefaultValue.STRING_VALUE);
+    testEdgeAttributeDouble = new EdgeAttribute(TestDefaultValue.DOUBLE_NAME.getValue(),
+        EdgeFormatIdentifier.DOUBLE_TYPE.getValue(), TestDefaultValue.DOUBLE_VALUE);
+    testEdgeAttributeInteger = new EdgeAttribute(TestDefaultValue.INTEGER_NAME.getValue(),
+        EdgeFormatIdentifier.INTEGER_TYPE.getValue(), TestDefaultValue.INTEGER_VALUE);
+    testEdgeAttributeFloat = new EdgeAttribute(TestDefaultValue.FLOAT_NAME.getValue(),
+        EdgeFormatIdentifier.FLOAT_TYPE.getValue(), TestDefaultValue.FLOAT_VALUE);
 
     testEdgeAttributeListHasAll = Arrays.asList(testEdgeAttributeString, testEdgeAttributeDouble,
         testEdgeAttributeInteger, testEdgeAttributeFloat);
     testEdgeAttributeAttributesHasAll =
-        new EdgeAttribute(ATTRIBUTES_NAME, ATTRIBUTES_DATATYPE, testEdgeAttributeListHasAll);
+        new EdgeAttribute(TestDefaultValue.ATTRIBUTES_NAME.getValue(),
+            EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue(), testEdgeAttributeListHasAll);
+    testEdgeAttributeListIsEmpty = new ArrayList<EdgeAttribute>();
     testEdgeAttributeAttributesIsEmpty =
-        new EdgeAttribute(ATTRIBUTES_NAME, ATTRIBUTES_DATATYPE, testEdgeAttributeListIsEmpty);
+        new EdgeAttribute(TestDefaultValue.ATTRIBUTES_NAME.getValue(),
+            EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue(), testEdgeAttributeListIsEmpty);
 
-    testEdgeAttributeNameIsNull = new EdgeAttribute(null, STRING_DATATYPE, STRING_VALUE);
-    testEdgeAttributeDataTypeIsNull = new EdgeAttribute(STRING_NAME, null, STRING_VALUE);
-    testEdgeAttributeValueIsNull = new EdgeAttribute(STRING_NAME, STRING_DATATYPE, null);
+    testEdgeAttributeNameIsNull = new EdgeAttribute(null,
+        EdgeFormatIdentifier.STRING_TYPE.getValue(), TestDefaultValue.STRING_VALUE);
+    testEdgeAttributeDataTypeIsNull = new EdgeAttribute(TestDefaultValue.STRING_NAME.getValue(),
+        null, TestDefaultValue.STRING_VALUE);
+    testEdgeAttributeValueIsNull = new EdgeAttribute(TestDefaultValue.STRING_NAME.getValue(),
+        EdgeFormatIdentifier.STRING_TYPE.getValue(), null);
     testEdgeAttributeDataTypeAndValueUnmatch =
-        new EdgeAttribute(UNMATCH_NAME, UNMATCH_DATATYPE, UNMATCH_VALUE);
+        new EdgeAttribute(TestDefaultValue.UNMATCHED_NAME.getValue(),
+            EdgeFormatIdentifier.STRING_TYPE.getValue(), TestDefaultValue.FLOAT_VALUE);
 
   }
 
@@ -108,7 +102,7 @@ public class EdgeAttributeTest {
     assertEquals(result, null);
     logger.info("[PASS] test_EncodeEdgeAttributeToJsonString_is_Null");
   }
-  
+
   @Test
   public void test_EncodeEdgeAttributeToJsonString_Value_is_String() throws Exception {
     logger.info("[TEST] test_EncodeEdgeAttributeToJsonString_Value_is_String");
