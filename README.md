@@ -1,4 +1,7 @@
-# datamodel-command-java
+# Command Data Model #
+Command Data Model is for command of metadata.
+## How to make json format [here](./document/README.md)
+
 
 <br></br>
 ##  Pre-Requirements to build datamodel-command-java
@@ -12,6 +15,6 @@
 
 <br></br>
 ### How to build datamodel-command-java [here](./command-json-format/README.md)
-### How to make json format [here](./document/README.md)
+
  
 
