@@ -2,7 +2,7 @@
 
 ## Basic Format ##
 
-'''
+```
 {
   "version" : A
   "dataTile" : B
@@ -21,7 +21,7 @@
      ...
                    ]
 }
-'''
+```
 
 ## Example for OPCUA Device Service ##
 
