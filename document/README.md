@@ -1,9 +1,10 @@
 # Command Data Model #
 Command Data Model is for command of metadata.
-It's good at expressing all data. because edgeAttributes can contain another edgeAttribute object.
+It will get you a easy expression of your data to send to micro service.
+And Also, It's good at expressing all data. because edgeAttributes can contain another edgeAttribute object.
 It provides some mandatory categories in below.
 
-* version - version of the datamodel
+* version - version of the datamodel (default : edge-1.0)
 * dataTitle - protocol or data title
 * edgeElements - element unit like command of metadata.
 * elementTitle - each element of edgeElements list can be expressed as operation of metadata.
