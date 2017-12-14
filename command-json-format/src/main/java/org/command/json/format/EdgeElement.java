@@ -62,7 +62,7 @@ public class EdgeElement {
   /**
    * Set ElementTitle of EdgeElement
    * 
-   * @param ElementTitle of EdgeElement
+   * @param elementTitle of EdgeElement
    */
   public void setElementTitle(String elementTitle) {
     this.elementTitle = elementTitle;

@@ -27,9 +27,9 @@ public enum TestDefaultValue {
   /**
    * construct TestDefaultValue
    * 
-   * @param code TestDefaultValue's code number
-   * @param value TestDefaultValue's value
-   * @param description TestDefaultValue's description
+   * @param code code number of TestDefaultValue
+   * @param value value of TestDefaultValue
+   * @param description description of TestDefaultValue
    */
   private TestDefaultValue(int code, String value, String description) {
     this.code = code;
@@ -38,27 +38,27 @@ public enum TestDefaultValue {
   }
 
   /**
-   * Get TestDefaultValue's code number
+   * Get code number of TestDefaultValue
    * 
-   * @return TestDefaultValue's code number
+   * @return code number of TestDefaultValue
    */
   public int getCode() {
     return code;
   }
 
   /**
-   * Get TestDefaultValue's value
+   * Get value of TestDefaultValue
    * 
-   * @return TestDefaultValue's value
+   * @return value of TestDefaultValue
    */
   public String getValue() {
     return value;
   }
 
   /**
-   * Get TestDefaultValue's description
+   * Get description of TestDefaultValue
    * 
-   * @return TestDefaultValue's description
+   * @return description of TestDefaultValue
    */
   public String getDescription() {
     return description;
