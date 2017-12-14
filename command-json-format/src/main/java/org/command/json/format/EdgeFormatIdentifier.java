@@ -5,7 +5,7 @@ public enum EdgeFormatIdentifier {
 
   //Data Title
   OPCUA_TYPE(10, "opcua", "opcua protocol type"), 
-  CNC_TYPE(11, "cnc", "CNC protocol type"), 
+  CNC_TYPE(11, "cnc", "CNC protocol type"),
   PLC_TYPE(12, "plc", "PLC protocol type"),
 
   //Data Type
