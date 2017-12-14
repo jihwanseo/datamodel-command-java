@@ -18,9 +18,9 @@ public enum EdgeErrorIdentifier {
   /**
    * construct EdgeErrorIdentifier
    * 
-   * @param code EdgeErrorIdentifier's error code number
-   * @param value EdgeErrorIdentifier's error message
-   * @param description EdgeErrorIdentifier's error description
+   * @param code Error code number of EdgeErrorIdentifier
+   * @param value Error message of EdgeErrorIdentifier
+   * @param description Error description of EdgeErrorIdentifier
    */
   private EdgeErrorIdentifier(int code, String value, String description) {
     this.code = code;
@@ -29,27 +29,27 @@ public enum EdgeErrorIdentifier {
   }
 
   /**
-   * Get EdgeErrorIdentifier's error code number
+   * Get error code number of EdgeErrorIdentifier
    * 
-   * @return code EdgeErrorIdentifier's error code number
+   * @return Error code number of EdgeErrorIdentifier
    */
   public int getCode() {
     return code;
   }
 
   /**
-   * Get EdgeErrorIdentifier's error message
+   * Get error message of EdgeErrorIdentifier
    * 
-   * @return code EdgeErrorIdentifier's error message
+   * @return Error message of EdgeErrorIdentifier
    */
   public String getValue() {
     return value;
   }
 
   /**
-   * Get EdgeErrorIdentifier's error description
+   * Get error description of EdgeErrorIdentifier
    * 
-   * @return code EdgeErrorIdentifier's error description
+   * @return Error description of EdgeErrorIdentifier
    */
   public String getDescription() {
     return description;

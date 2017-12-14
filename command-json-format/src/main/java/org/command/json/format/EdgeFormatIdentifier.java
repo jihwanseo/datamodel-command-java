@@ -22,9 +22,9 @@ public enum EdgeFormatIdentifier {
   /**
    * construct EdgeFormatIdentifier
    * 
-   * @param code EdgeFormatIdentifier's format code number
-   * @param value EdgeFormatIdentifier's format value
-   * @param description EdgeFormatIdentifier's format description
+   * @param code Format code number of EdgeFormatIdentifier
+   * @param value Format value of EdgeFormatIdentifier
+   * @param description Format description of EdgeFormatIdentifier
    */
   private EdgeFormatIdentifier(int code, String value, String description) {
     this.code = code;
@@ -33,27 +33,27 @@ public enum EdgeFormatIdentifier {
   }
 
   /**
-   * Get EdgeFormatIdentifier's format code number
+   * Get format code number of EdgeFormatIdentifier
    * 
-   * @return EdgeFormatIdentifier's format code number
+   * @return Format code number of EdgeFormatIdentifier
    */
   public int getCode() {
     return code;
   }
 
   /**
-   * Get EdgeFormatIdentifier's format value
+   * Get format value of EdgeFormatIdentifier
    * 
-   * @return EdgeFormatIdentifier's format value
+   * @return Format value of EdgeFormatIdentifier
    */
   public String getValue() {
     return value;
   }
 
   /**
-   * Get EdgeFormatIdentifier's format description
+   * Get format description of EdgeFormatIdentifier
    * 
-   * @return EdgeFormatIdentifier's format description
+   * @return Format description of EdgeFormatIdentifier
    */
   public String getDescription() {
     return description;

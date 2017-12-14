@@ -11,9 +11,9 @@ public class EdgeAttribute {
    * Use {@link #setDataType(String)} to set a dataType <br>
    * Use {@link #setValue(Object)} to set a value
    * 
-   * @param name name of EdgeAttribute' data
-   * @param dataType dataType of EdgeAttribute' data
-   * @param value value of EdgeAttribute' data
+   * @param name Name of EdgeAttribute
+   * @param dataType DataType of EdgeAttribute
+   * @param value Value of EdgeAttribute
    */
   public EdgeAttribute(String name, String dataType, Object value) {
     this.setName(name);
@@ -22,54 +22,54 @@ public class EdgeAttribute {
   }
 
   /**
-   * Get EdgeAttribute's name
+   * Get name of EdgeAttribute
    * 
-   * @return EdgeAttribute's name
+   * @return Name of EdgeAttribute
    */
   public String getName() {
     return name;
   }
 
   /**
-   * Set EdgeAttribute's name
+   * Set name of EdgeAttribute
    * 
-   * @param name name of EdgeAttribute' data
+   * @param name Name of EdgeAttribute
    */
   public void setName(String name) {
     this.name = name;
   }
 
   /**
-   * Get EdgeAttribute's dataType
+   * Get dataType of EdgeAttribute
    * 
-   * @return EdgeAttribute's dataType
+   * @return DataType of EdgeAttribute
    */
   public String getDataType() {
     return dataType;
   }
 
   /**
-   * Set EdgeAttribute's dataType
+   * Set dataType of EdgeAttribute
    * 
-   * @param dataType dataType of EdgeAttribute' data
+   * @param dataType DataType of EdgeAttribute
    */
   public void setDataType(String dataType) {
     this.dataType = dataType;
   }
 
   /**
-   * Get EdgeAttribute's value
+   * Get value of EdgeAttribute
    * 
-   * @return EdgeAttribute's value
+   * @return Value of  EdgeAttribute
    */
   public Object getValue() {
     return value;
   }
 
   /**
-   * Set EdgeAttribute's value
+   * Set value of EdgeAttribute
    * 
-   * @param value value of EdgeAttribute' data
+   * @param value Value of EdgeAttribute
    */
   public void setValue(Object value) {
     this.value = value;

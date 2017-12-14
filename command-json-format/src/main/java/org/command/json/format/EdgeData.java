@@ -14,9 +14,9 @@ public class EdgeData {
    * Use {@link #setDataTitle(String)} to set a dataTitle <br>
    * Use {@link #setEdgeElementList(List)} to set a edgeElementList
    * 
-   * @param version EdgeData's version
-   * @param dataTitle EdgeData's dataTitle
-   * @param edgeElementList EdgeData's list of EdgeElement
+   * @param version Version of EdgeData
+   * @param dataTitle Data Title of EdgeData
+   * @param edgeElementList List of EdgeElement in EdgeElement
    */
   public EdgeData(String version, String dataTitle, List<EdgeElement> edgeElementList) {
     this.setVersion(version);
@@ -30,8 +30,8 @@ public class EdgeData {
    * Use {@link #setDataTitle(String)} to set a dataTitle <br>
    * Use {@link #setEdgeElementList(List)} to set a edgeElementList
    * 
-   * @param version EdgeData's version
-   * @param dataTitle EdgeData's dataTitle
+   * @param version Version of EdgeData
+   * @param dataTitle DataTitle of EdgeData
    */
   public EdgeData(String version, String dataTitle) {
     this.setVersion(version);
@@ -40,54 +40,54 @@ public class EdgeData {
   }
 
   /**
-   * Set EdgeData's version
+   * Set version of EdgeData
    * 
-   * @param version EdgeData's version
+   * @param version Version of EdgeData
    */
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * Get EdgeData's version
+   * Get version of EdgeData
    * 
-   * @return EdgeData's version
+   * @return Version of EdgeData
    */
   public String getVersion() {
     return version;
   }
 
   /**
-   * Set EdgeData's list of EdgeElement
+   * Set list of EdgeElement in EdgeElement
    * 
-   * @param edgeElements EdgeData's list of EdgeElement
+   * @param edgeElements List of EdgeElement in EdgeElement
    */
   public void setEdgeElementList(List<EdgeElement> edgeElements) {
     this.edgeElements = edgeElements;
   }
 
   /**
-   * Get EdgeData's list of EdgeElement
+   * Get list of EdgeElement in EdgeElement
    * 
-   * @return EdgeData's list of EdgeElement
+   * @return List of EdgeElement in EdgeElement
    */
   public List<EdgeElement> getEdgeElementList() {
     return edgeElements;
   }
 
   /**
-   * Set EdgeData's dataTitle
+   * Set dataTitle of EdgeData
    * 
-   * @param dataTitle EdgeData's dataTitle
+   * @param dataTitle Data Title of EdgeData
    */
   public void setDataTitle(String dataTitle) {
     this.dataTitle = dataTitle;
   }
 
   /**
-   * Get EdgeData's dataTitle
+   * Get dataTitle of EdgeData
    * 
-   * @return EdgeData's dataTitle
+   * @return DataTitle of EdgeData
    */
   public String getDataTitle() {
     return dataTitle;
