@@ -12,3 +12,6 @@
 
 <br></br>
 ### How to build datamodel-command-java [here](./command-json-format/README.md)
+### How to make json format [here](./datamodel-command-java/document/README.md)
+ 
+
