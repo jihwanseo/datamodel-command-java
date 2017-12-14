@@ -1,6 +1,6 @@
 # Command Data Model #
 Command Data Model is for command of metadata.
-## How to make json format [here](./document/README.md)
+* How to make json format [here](./document/README.md)
 
 
 <br></br>
