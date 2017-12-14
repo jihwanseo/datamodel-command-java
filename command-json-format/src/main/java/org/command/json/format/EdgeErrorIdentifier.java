@@ -1,5 +1,7 @@
 package org.command.json.format;
 
+import java.util.List;
+
 public enum EdgeErrorIdentifier {
   EDGE_DS_ERROR_RESPONSE_NULL(0, "edge_ds_error_response_null",
       "Edge Device Service Response is null"), EDGE_DS_ERROR_RESPONSE_TIME_OUT(1,
@@ -14,11 +16,11 @@ public enum EdgeErrorIdentifier {
   private String description;
 
   /**
-   * @fn EdgeErrorIdentifier(int code, String value, String description)
-   * @brief constructor
-   * @param [in] code @int
-   * @param [in] value @String
-   * @param [in] description @String
+   * construct EdgeErrorIdentifier
+   * 
+   * @param code EdgeErrorIdentifier's error code number
+   * @param value EdgeErrorIdentifier's error message
+   * @param description EdgeErrorIdentifier's error description
    */
   private EdgeErrorIdentifier(int code, String value, String description) {
     this.code = code;
@@ -27,27 +29,27 @@ public enum EdgeErrorIdentifier {
   }
 
   /**
-   * @fn int getCode()
-   * @brief get enum code
-   * @return code
+   * Get EdgeErrorIdentifier's error code number
+   * 
+   * @return code EdgeErrorIdentifier's error code number
    */
   public int getCode() {
     return code;
   }
 
   /**
-   * @fn String getValue()
-   * @brief get enum value
-   * @return value
+   * Get EdgeErrorIdentifier's error message
+   * 
+   * @return code EdgeErrorIdentifier's error message
    */
   public String getValue() {
     return value;
   }
 
   /**
-   * @fn String getDescription()
-   * @brief get description
-   * @return description
+   * Get EdgeErrorIdentifier's error description
+   * 
+   * @return code EdgeErrorIdentifier's error description
    */
   public String getDescription() {
     return description;

@@ -9,11 +9,14 @@ public class EdgeData {
   private List<EdgeElement> edgeElements = null;
 
   /**
-   * @fn EdgeAttribute(String name, String dataType, Object value)
-   * @brief constructor
-   * @param [in] version @String
-   * @param [in] dataTitle @String
-   * @param [in] edgeElementList @List<EdgeElement>
+   * construct EdgeData <br>
+   * Use {@link #setVersion(String)} to set a version <br>
+   * Use {@link #setDataTitle(String)} to set a dataTitle <br>
+   * Use {@link #setEdgeElementList(List)} to set a edgeElementList
+   * 
+   * @param version EdgeData's version
+   * @param dataTitle EdgeData's dataTitle
+   * @param edgeElementList EdgeData's list of EdgeElement
    */
   public EdgeData(String version, String dataTitle, List<EdgeElement> edgeElementList) {
     this.setVersion(version);
@@ -22,10 +25,13 @@ public class EdgeData {
   }
 
   /**
-   * @fn EdgeData(String version, String dataTitle)
-   * @brief constructor
-   * @param [in] version @String
-   * @param [in] dataTitle @String
+   * construct EdgeData without dataTitle <br>
+   * Use {@link #setVersion(String)} to set a version <br>
+   * Use {@link #setDataTitle(String)} to set a dataTitle <br>
+   * Use {@link #setEdgeElementList(List)} to set a edgeElementList
+   * 
+   * @param version EdgeData's version
+   * @param dataTitle EdgeData's dataTitle
    */
   public EdgeData(String version, String dataTitle) {
     this.setVersion(version);
@@ -34,54 +40,54 @@ public class EdgeData {
   }
 
   /**
-   * @fn void setVersion(String version)
-   * @brief Set version
-   * @param [in] version @String
+   * Set EdgeData's version
+   * 
+   * @param version EdgeData's version
    */
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * @fn String getVersion()
-   * @brief Get version
-   * @return @String
+   * Get EdgeData's version
+   * 
+   * @return EdgeData's version
    */
   public String getVersion() {
     return version;
   }
 
   /**
-   * @fn void setEdgeElementList(List<EdgeElement> edgeElements)
-   * @brief Set edgeElements
-   * @param [in] edgeElements @List<EdgeElement>
+   * Set EdgeData's list of EdgeElement
+   * 
+   * @param edgeElements EdgeData's list of EdgeElement
    */
   public void setEdgeElementList(List<EdgeElement> edgeElements) {
     this.edgeElements = edgeElements;
   }
 
   /**
-   * @fn List<EdgeElement> getEdgeElementList()
-   * @brief Get edgeElementList
-   * @return @List<EdgeElement>
+   * Get EdgeData's list of EdgeElement
+   * 
+   * @return EdgeData's list of EdgeElement
    */
   public List<EdgeElement> getEdgeElementList() {
     return edgeElements;
   }
 
   /**
-   * @fn void setDataTitle(String dataTitle)
-   * @brief Set dataTitle
-   * @param [in] dataTitle @String
+   * Set EdgeData's dataTitle
+   * 
+   * @param dataTitle EdgeData's dataTitle
    */
   public void setDataTitle(String dataTitle) {
     this.dataTitle = dataTitle;
   }
 
   /**
-   * @fn String getDataTitle()
-   * @brief Get dataTitle
-   * @return @String
+   * Get EdgeData's dataTitle
+   * 
+   * @return EdgeData's dataTitle
    */
   public String getDataTitle() {
     return dataTitle;
