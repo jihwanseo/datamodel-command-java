@@ -28,53 +28,170 @@
 ### READ ###
 
 1. Request
-{<br></br>
-  "version" : "edge-1.0"<br></br>
-  "dataTile" : "opcua"<br></br>
-  "edgeElements" : [<br></br>
-     { <br></br>
-       "elementTitle" : "read"<br></br>
-       "edgeAttributes" : [<br></br>
-          { <br></br>
-             "name" : "value_descriptor"<br></br>
-             "dataType" : "string"<br></br>
-             "value" : "temperature"<br></br>
-          }<br></br>
-                          ]<br></br>
-     }<br></br>
-                   ]<br></br>
-}<br></br>
-<br></br>
-2. Response
-{<br></br>
-  "version" : "edge-1.0"<br></br>
-  "dataTile" : "opcua"<br></br>
-  "edgeElements" : [<br></br>
-     { <br></br>
-       "elementTitle" : "read"<br></br>
-       "edgeAttributes" : [<br></br>
-          { <br></br>
-             "name" : "response_information"<br></br>
-             "dataType" : "attribute"<br></br>
-             "value" : [<br></br>
-                {<br></br>
-                    "name" : "value_descriptor"<br></br>
-                    "dataType" : "string"<br></br>
-                    "value" : "temperature"<br></br>
-                },<br></br>
-                {<br></br>
-                    "name" : "value"<br></br>
-                    "dataType" : "string"<br></br>
-                    "value" : "80F"<br></br>
-                }<br></br>
-          },<br></br>
-          {<br></br>
-             "name" : "result"<br></br>
-             "dataType" : "string"<br></br>
-             "value" : "edge_response_ok"<br></br>
-          }<br></br>
-                          ]<br></br>
-     }<br></br>
-                   ]<br></br>
-}<br></br>
+```
+{
+  "version" : "edge-1.0"
+  "dataTile" : "opcua"
+  "edgeElements" : [
+     { 
+       "elementTitle" : "read"
+       "edgeAttributes" : [
+          {
+             "name" : "value_descriptor"
+             "dataType" : "string"
+             "value" : "temperature"
+          }
+                          ]
+     }
+                   ]
+}
+```
 
+2. Response
+```
+{
+  "version" : "edge-1.0"
+  "dataTile" : "opcua"
+  "edgeElements" : [
+     {
+       "elementTitle" : "read"
+       "edgeAttributes" : [
+          {
+             "name" : "response_information"
+             "dataType" : "attribute"
+             "value" : [
+                {
+                    "name" : "value_descriptor"
+                    "dataType" : "string"
+                    "value" : "temperature"
+                },
+                {
+                    "name" : "value"
+                    "dataType" : "string"
+                    "value" : "80F"
+                }
+          },
+          {
+             "name" : "result"
+             "dataType" : "string"
+             "value" : "edge_response_ok"
+          }
+                          ]
+     }
+                   ]
+}
+```
+
+### WRITE ###
+
+1. Request
+```
+{
+  "version" : "edge-1.0"
+  "dataTile" : "opcua"
+  "edgeElements" : [
+     { 
+       "elementTitle" : "write"
+       "edgeAttributes" : [
+          {
+             "name" : "value_descriptor"
+             "dataType" : "string"
+             "value" : "fan"
+          },
+          {
+             "name" : "input_argument"
+             "dataType" : "string"
+             "value" : "off"
+          }
+                          ]
+     }
+                   ]
+}
+```
+
+2. Response
+```
+{
+  "version" : "edge-1.0"
+  "dataTile" : "opcua"
+  "edgeElements" : [
+     {
+       "elementTitle" : "write"
+       "edgeAttributes" : [
+          {
+             "name" : "value_descriptor"
+             "dataType" : "string"
+             "value" : "fan"
+          },
+          {
+             "name" : "result"
+             "dataType" : "string"
+             "value" : "edge_response_ok"
+          }
+                          ]
+     }
+                   ]
+}
+```
+
+### SUBSCRIPTION ###
+
+1. Request
+```
+{
+  "version" : "edge-1.0"
+  "dataTile" : "opcua"
+  "edgeElements" : [
+     { 
+       "elementTitle" : "sub"
+       "edgeAttributes" : [
+          {
+             "name" : "value_descriptor"
+             "dataType" : "string"
+             "value" : "temperature"
+          },
+          {
+             "name" : "sampling_interval"
+             "dataType" : "double"
+             "value" : "1000.0"
+          }
+                          ]
+     }
+                   ]
+}
+```
+
+2. Response
+```
+{
+  "version" : "edge-1.0"
+  "dataTile" : "opcua"
+  "edgeElements" : [
+     {
+       "elementTitle" : "sub"
+       "edgeAttributes" : [
+          {
+             "name" : "response_information"
+             "dataType" : "attribute"
+             "value" : [
+                {
+                    "name" : "value_descriptor"
+                    "dataType" : "string"
+                    "value" : "temperature"
+                },
+                {
+                    "name" : "revised_sample_interval"
+                    "dataType" : "double"
+                    "value" : "1000.0"
+                }
+          },
+          {
+             "name" : "result"
+             "dataType" : "string"
+             "value" : "edge_response_ok"
+          }
+                          ]
+     }
+                   ]
+}
+```
