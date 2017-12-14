@@ -25,11 +25,11 @@ public enum TestDefaultValue {
   private String description;
 
   /**
-   * @fn TestDefaultValue(int code, String value, String description)
-   * @brief constructor
-   * @param [in] code @int
-   * @param [in] value @String
-   * @param [in] description @String
+   * construct TestDefaultValue
+   * 
+   * @param code code number of TestDefaultValue
+   * @param value value of TestDefaultValue
+   * @param description description of TestDefaultValue
    */
   private TestDefaultValue(int code, String value, String description) {
     this.code = code;
@@ -38,27 +38,27 @@ public enum TestDefaultValue {
   }
 
   /**
-   * @fn int getCode()
-   * @brief get enum code
-   * @return code
+   * Get code number of TestDefaultValue
+   * 
+   * @return code number of TestDefaultValue
    */
   public int getCode() {
     return code;
   }
 
   /**
-   * @fn String getValue()
-   * @brief get enum value
-   * @return value
+   * Get value of TestDefaultValue
+   * 
+   * @return value of TestDefaultValue
    */
   public String getValue() {
     return value;
   }
 
   /**
-   * @fn String getDescription()
-   * @brief get description
-   * @return description
+   * Get description of TestDefaultValue
+   * 
+   * @return description of TestDefaultValue
    */
   public String getDescription() {
     return description;

@@ -20,11 +20,11 @@ public enum EdgeFormatIdentifier {
   private String description;
 
   /**
-   * @fn EdgeFormatIdentifier(int code, String value, String description)
-   * @brief constructor
-   * @param [in] code @int
-   * @param [in] value @String
-   * @param [in] description @String
+   * construct EdgeFormatIdentifier
+   * 
+   * @param code Format code number of EdgeFormatIdentifier
+   * @param value Format value of EdgeFormatIdentifier
+   * @param description Format description of EdgeFormatIdentifier
    */
   private EdgeFormatIdentifier(int code, String value, String description) {
     this.code = code;
@@ -33,27 +33,27 @@ public enum EdgeFormatIdentifier {
   }
 
   /**
-   * @fn int getCode()
-   * @brief get enum code
-   * @return code
+   * Get format code number of EdgeFormatIdentifier
+   * 
+   * @return Format code number of EdgeFormatIdentifier
    */
   public int getCode() {
     return code;
   }
 
   /**
-   * @fn String getValue()
-   * @brief get enum value
-   * @return value
+   * Get format value of EdgeFormatIdentifier
+   * 
+   * @return Format value of EdgeFormatIdentifier
    */
   public String getValue() {
     return value;
   }
 
   /**
-   * @fn String getDescription()
-   * @brief get description
-   * @return description
+   * Get format description of EdgeFormatIdentifier
+   * 
+   * @return Format description of EdgeFormatIdentifier
    */
   public String getDescription() {
     return description;

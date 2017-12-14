@@ -8,9 +8,11 @@ public class EdgeElement {
   private List<EdgeAttribute> edgeAttributes = null;
 
   /**
-   * @fn EdgeElement(String elementTitle)
-   * @brief constructor
-   * @param [in] elementTitle @String
+   * construct EdgeElement without edgeAttributeList <br>
+   * Use {@link #setElementTitle(String)} to set a elementTitle <br>
+   * Use {@link #setEdgeAttributeList(List)} to set a edgeAttributeList
+   * 
+   * @param elementTitle ElementTitle of EdgeElement
    */
   public EdgeElement(String elementTitle) {
     this.setElementTitle(elementTitle);
@@ -18,10 +20,12 @@ public class EdgeElement {
   }
 
   /**
-   * @fn EdgeElement(String elementTitle, List<EdgeAttribute> edgeAttributes)
-   * @brief constructor
-   * @param [in] elementTitle @String
-   * @param [in] edgeAttributes @List<EdgeAttribute>
+   * construct EdgeElement <br>
+   * Use {@link #setElementTitle(String)} to set a elementTitle <br>
+   * Use {@link #setEdgeAttributeList(List)} to set a edgeAttributeList
+   * 
+   * @param elementTitle ElementTitle of EdgeElement
+   * @param edgeAttributes List of edgeAttributeList in EdgeElement
    */
   public EdgeElement(String elementTitle, List<EdgeAttribute> edgeAttributes) {
     this.setElementTitle(elementTitle);
@@ -29,36 +33,36 @@ public class EdgeElement {
   }
 
   /**
-   * @fn void setEdgeAttributeList(List<EdgeAttribute> edgeAttributes)
-   * @brief Set edgeAttributes
-   * @param [in] edgeAttributes @List<EdgeAttribute>
+   * Set List of edgeAttributeList in EdgeElement
+   * 
+   * @param edgeAttributes List of edgeAttributeList in EdgeElement
    */
   public void setEdgeAttributeList(List<EdgeAttribute> edgeAttributes) {
     this.edgeAttributes = edgeAttributes;
   }
 
   /**
-   * @fn List<EdgeAttribute> getEdgeAttributeList()
-   * @brief Get edgeAttributes
-   * @return @List<EdgeAttribute>
+   * Get List of edgeAttributeList in EdgeElement
+   * 
+   * @return List of edgeAttributeList in EdgeElement
    */
   public List<EdgeAttribute> getEdgeAttributeList() {
     return edgeAttributes;
   }
 
   /**
-   * @fn String getElementTitle()
-   * @brief Get elementTitle
-   * @return @String
+   * Get ElementTitle of EdgeElement
+   * 
+   * @return ElementTitle of EdgeElement
    */
   public String getElementTitle() {
     return elementTitle;
   }
 
   /**
-   * @fn void setElementTitle(String elementTitle)
-   * @brief Set elementTitle
-   * @param [in] elementTitle @String
+   * Set ElementTitle of EdgeElement
+   * 
+   * @param elementTitle of EdgeElement
    */
   public void setElementTitle(String elementTitle) {
     this.elementTitle = elementTitle;

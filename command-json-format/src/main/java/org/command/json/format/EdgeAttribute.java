@@ -6,11 +6,14 @@ public class EdgeAttribute {
   private Object value = null;
 
   /**
-   * @fn EdgeAttribute(String name, String dataType, Object value)
-   * @brief constructor
-   * @param [in] name @String
-   * @param [in] dataType @String
-   * @param [in] value @String
+   * construct EdgeAttribute <br>
+   * Use {@link #setName(String)} to set a name <br>
+   * Use {@link #setDataType(String)} to set a dataType <br>
+   * Use {@link #setValue(Object)} to set a value
+   * 
+   * @param name Name of EdgeAttribute
+   * @param dataType DataType of EdgeAttribute
+   * @param value Value of EdgeAttribute
    */
   public EdgeAttribute(String name, String dataType, Object value) {
     this.setName(name);
@@ -19,54 +22,54 @@ public class EdgeAttribute {
   }
 
   /**
-   * @fn String getName()
-   * @brief Get name
-   * @return @String
+   * Get name of EdgeAttribute
+   * 
+   * @return Name of EdgeAttribute
    */
   public String getName() {
     return name;
   }
 
   /**
-   * @fn void setName(String name)
-   * @brief Set name
-   * @param [in] name @String
+   * Set name of EdgeAttribute
+   * 
+   * @param name Name of EdgeAttribute
    */
   public void setName(String name) {
     this.name = name;
   }
 
   /**
-   * @fn String getDataType()
-   * @brief Get dataType
-   * @return @String
+   * Get dataType of EdgeAttribute
+   * 
+   * @return DataType of EdgeAttribute
    */
   public String getDataType() {
     return dataType;
   }
 
   /**
-   * @fn void setDataType(String dataType)
-   * @brief Set dataType
-   * @param [in] name @String
+   * Set dataType of EdgeAttribute
+   * 
+   * @param dataType DataType of EdgeAttribute
    */
   public void setDataType(String dataType) {
     this.dataType = dataType;
   }
 
   /**
-   * @fn String getValue()
-   * @brief Get value
-   * @return @Object
+   * Get value of EdgeAttribute
+   * 
+   * @return Value of  EdgeAttribute
    */
   public Object getValue() {
     return value;
   }
 
   /**
-   * @fn void setValue(Object value)
-   * @brief Set value
-   * @param [in] value @Object
+   * Set value of EdgeAttribute
+   * 
+   * @param value Value of EdgeAttribute
    */
   public void setValue(Object value) {
     this.value = value;
