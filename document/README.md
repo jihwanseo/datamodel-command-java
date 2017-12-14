@@ -2,24 +2,26 @@
 
 ## Basic Format ##
 
-{<br></br>
-  "version" : A<br></br>
-  "dataTile" : B<br></br>
-  "edgeElements" : [<br></br>
-     { <br></br>
-       "elementTitle" : C<br></br>
-       "edgeAttributes" : [<br></br>
-          { <br></br>
-             "name" : D<br></br>
-             "dataType" : E<br></br>
-             "value" : F<br></br>
-          },<br></br>
-          ...<br></br>
-                          ]<br></br>
-     },<br></br>
-     ...<br></br>
-                   ]<br></br>
-}<br></br>
+'''
+{
+  "version" : A
+  "dataTile" : B
+  "edgeElements" : [
+     {
+       "elementTitle" : C
+       "edgeAttributes" : [
+          {
+             "name" : D
+             "dataType" : E
+             "value" : F
+          },
+          ...
+                          ]
+     },
+     ...
+                   ]
+}
+'''
 
 ## Example for OPCUA Device Service ##
 
