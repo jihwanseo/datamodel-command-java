@@ -84,7 +84,7 @@ public class EdgeJsonFormatter {
    * Use {@link #convertDoubleFromObject(Object)} to convert double value of EdgeAttribute <br>
    * Use {@link #convertFloatFromObject(Object)} to convert float value of EdgeAttribute <br>
    * Use {@link #convertIntegerFromObject(Object)} to convert integer value of EdgeAttribute <br>
-   * Use {@link #convertEdgeAttrubiteListFromObject(Object)} to convert list value of EdgeAttribute
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert list value of EdgeAttribute
    * 
    * @param edgeAttribute EdgeAttribute to be converted
    * 
@@ -109,7 +109,7 @@ public class EdgeJsonFormatter {
         value = convertIntegerFromObject(edgeAttribute.getValue());
       } else if (edgeAttribute.getDataType()
           .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue())) {
-        value = convertEdgeAttrubiteListFromObject(edgeAttribute.getValue());
+        value = convertEdgeAttributeListFromObject(edgeAttribute.getValue());
       }
       if (ret == true && value != null) {
         edgeAttribute.setValue(value);
@@ -229,7 +229,7 @@ public class EdgeJsonFormatter {
   /**
    * Get Object Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute <br>
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
-   * Use {@link #convertEdgeAttrubiteListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
    * 
    * @param edgeAttributeList list of EdgeAttribute
@@ -247,7 +247,7 @@ public class EdgeJsonFormatter {
         return edgeAttr.getValue();
       } else if (edgeAttr.getDataType()
           .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-        return getObjectValueByName(convertEdgeAttrubiteListFromObject(edgeAttr.getValue()),
+        return getObjectValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),
             edgeAttributeName);
       }
     }
@@ -257,7 +257,7 @@ public class EdgeJsonFormatter {
   /**
    * Get String Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute <br>
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
-   * Use {@link #convertEdgeAttrubiteListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
    * 
    * @param edgeAttributeList list of EdgeAttribute
@@ -276,7 +276,7 @@ public class EdgeJsonFormatter {
         return String.valueOf(edgeAttr.getValue());
       } else if (edgeAttr.getDataType()
           .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-        return getStringValueByName(convertEdgeAttrubiteListFromObject(edgeAttr.getValue()),
+        return getStringValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),
             edgeAttributeName);
       }
     }
@@ -286,7 +286,7 @@ public class EdgeJsonFormatter {
   /**
    * Get Double Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute <br>
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
-   * Use {@link #convertEdgeAttrubiteListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
    * 
    * @param edgeAttributeList list of EdgeAttribute
@@ -305,7 +305,7 @@ public class EdgeJsonFormatter {
         return (Double) edgeAttr.getValue();
       } else if (edgeAttr.getDataType()
           .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-        return getDoubleValueByName(convertEdgeAttrubiteListFromObject(edgeAttr.getValue()),
+        return getDoubleValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),
             edgeAttributeName);
       }
     }
@@ -315,7 +315,7 @@ public class EdgeJsonFormatter {
   /**
    * Get Integer Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute <br>
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
-   * Use {@link #convertEdgeAttrubiteListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
    * 
    * @param edgeAttributeList list of EdgeAttribute
@@ -335,7 +335,7 @@ public class EdgeJsonFormatter {
       } else if (edgeAttr.getDataType()
           .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
 
-        return getIntegerValueByName(convertEdgeAttrubiteListFromObject(edgeAttr.getValue()),
+        return getIntegerValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),
             edgeAttributeName);
       }
     }
@@ -345,7 +345,7 @@ public class EdgeJsonFormatter {
   /**
    * Get Float Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute <br>
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
-   * Use {@link #convertEdgeAttrubiteListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
    * 
    * @param edgeAttributeList list of EdgeAttribute
@@ -364,7 +364,7 @@ public class EdgeJsonFormatter {
         return (Float) edgeAttr.getValue();
       } else if (edgeAttr.getDataType()
           .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {
-        return getFloatValueByName(convertEdgeAttrubiteListFromObject(edgeAttr.getValue()),
+        return getFloatValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),
             edgeAttributeName);
       }
     }
@@ -379,7 +379,7 @@ public class EdgeJsonFormatter {
    * 
    * @return value if type of value is List of EdgeAttribute, otherwise null
    */
-  public static List<EdgeAttribute> convertEdgeAttrubiteListFromObject(Object value) {
+  public static List<EdgeAttribute> convertEdgeAttributeListFromObject(Object value) {
     List<EdgeAttribute> edgeAttributeList = null;
     if (value instanceof List) {
       List<?> listObj = (List<?>) value;
