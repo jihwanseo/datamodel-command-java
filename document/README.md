@@ -18,7 +18,7 @@ It provides some mandatory categories in below.
 ```
 {
   "version" : A
-  "dataTile" : B
+  "dataTitle" : B
   "edgeElements" : [
      {
        "elementTitle" : C
@@ -44,7 +44,7 @@ It provides some mandatory categories in below.
 ```
 {
   "version" : "edge-1.0"
-  "dataTile" : "opcua"
+  "dataTitle" : "opcua"
   "edgeElements" : [
      { 
        "elementTitle" : "read"
@@ -64,7 +64,7 @@ It provides some mandatory categories in below.
 ```
 {
   "version" : "edge-1.0"
-  "dataTile" : "opcua"
+  "dataTitle" : "opcua"
   "edgeElements" : [
      {
        "elementTitle" : "read"
@@ -101,7 +101,7 @@ It provides some mandatory categories in below.
 ```
 {
   "version" : "edge-1.0"
-  "dataTile" : "opcua"
+  "dataTitle" : "opcua"
   "edgeElements" : [
      { 
        "elementTitle" : "write"
@@ -126,7 +126,7 @@ It provides some mandatory categories in below.
 ```
 {
   "version" : "edge-1.0"
-  "dataTile" : "opcua"
+  "dataTitle" : "opcua"
   "edgeElements" : [
      {
        "elementTitle" : "write"
@@ -153,7 +153,7 @@ It provides some mandatory categories in below.
 ```
 {
   "version" : "edge-1.0"
-  "dataTile" : "opcua"
+  "dataTitle" : "opcua"
   "edgeElements" : [
      { 
        "elementTitle" : "sub"
@@ -178,7 +178,7 @@ It provides some mandatory categories in below.
 ```
 {
   "version" : "edge-1.0"
-  "dataTile" : "opcua"
+  "dataTitle" : "opcua"
   "edgeElements" : [
      {
        "elementTitle" : "sub"
