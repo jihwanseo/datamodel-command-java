@@ -147,7 +147,7 @@ It provides some mandatory categories in below.
 }
 ```
 
-### SUBSCRIPTION ###
+### SUBSCRIPTION (Monitoring) ###
 
 1. Request
 ```
