@@ -1,7 +1,7 @@
 # Command Data Model #
 Command Data Model is for command of metadata.
-It will get you a easy expression of your data to send to micro service.
-And Also, It's good at expressing all data. because edgeAttributes can contain another edgeAttribute object.
+It will get you a easy expression of your request or response data which has a lot of categories and attributes. 
+And Also, It's good at expressing a complex data which has depths. because Attribute Category can contain another Attribute.
 It provides some mandatory categories in below.
 
 * version - version of the datamodel (default : edge-1.0)
