@@ -1,17 +1,18 @@
-# Command Data Model #
+Command Data Model
+=======================================
 Command Data Model is for command of metadata.
 It will get you a easy expression of your request or response data which has a lot of categories and attributes. 
 And Also, It's good at expressing a complex data which has depths. because Attribute Category can contain another Attribute.
 It provides some mandatory categories in below.
 
-* version - version of the datamodel (default : edge-1.0)
-* dataTitle - protocol or data title
-* edgeElements - element unit like command of metadata.
-* elementTitle - each element of edgeElements list can be expressed as operation of metadata.
-* edgeAttributes - attribute list
-* name - attribute name
-* dataType - data type
-* value - actual value of the data
+- version - version of the datamodel (default : edge-1.0)
+- dataTitle - protocol or data title
+- edgeElements - element unit like command of metadata.
+- elementTitle - each element of edgeElements list can be expressed as operation of metadata.
+- edgeAttributes - attribute list
+- name - attribute name
+- dataType - data type
+- value - actual value of the data
 
 ## Basic Format ##
 
@@ -38,9 +39,8 @@ It provides some mandatory categories in below.
 
 ## Example for OPCUA Device Service ##
 
-### READ ###
-
-1. Request
+- READ
+  - Request
 ```
 {
   "version" : "edge-1.0"
@@ -60,7 +60,7 @@ It provides some mandatory categories in below.
 }
 ```
 
-2. Response
+  - Response
 ```
 {
   "version" : "edge-1.0"
@@ -95,9 +95,9 @@ It provides some mandatory categories in below.
 }
 ```
 
-### WRITE ###
+- WRITE
 
-1. Request
+  - Request
 ```
 {
   "version" : "edge-1.0"
@@ -122,7 +122,7 @@ It provides some mandatory categories in below.
 }
 ```
 
-2. Response
+  - Response
 ```
 {
   "version" : "edge-1.0"
@@ -147,9 +147,9 @@ It provides some mandatory categories in below.
 }
 ```
 
-### SUBSCRIPTION (Monitoring) ###
+- SUBSCRIPTION (Monitoring)
 
-1. Request
+  - Request
 ```
 {
   "version" : "edge-1.0"
@@ -174,7 +174,7 @@ It provides some mandatory categories in below.
 }
 ```
 
-2. Response
+  - Response
 ```
 {
   "version" : "edge-1.0"
