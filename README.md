@@ -12,5 +12,5 @@ It will get you a easy expression of your data to send to micro service. And Als
    - [Download](https://maven.apache.org/download.cgi)
 
 ## How to build ##
-- [How to build datamodel-command-java](./command-json-format/README.md)
+- [here](./command-json-format/README.md)
 
