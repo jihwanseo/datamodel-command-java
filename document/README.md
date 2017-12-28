@@ -39,7 +39,8 @@ It provides some mandatory categories in below.
 
 ## Example for OPCUA Device Service ##
 
-- READ
+#### READ ####
+
   - Request
 ```
 {
@@ -93,9 +94,9 @@ It provides some mandatory categories in below.
      }
                    ]
 }
-```
+  ```
 
-- WRITE
+#### WRITE ####
 
   - Request
 ```
@@ -147,7 +148,7 @@ It provides some mandatory categories in below.
 }
 ```
 
-- SUBSCRIPTION (Monitoring)
+#### SUBSCRIPTION (Monitoring) ####
 
   - Request
 ```
