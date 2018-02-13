@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>EdgeData.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">datamodel-command-java (Feb 13, 2018 3:01:42 PM)</a> &gt; <a href="../../index.html" class="el_group">datamodel-command-java</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">org.command.json.format</a> &gt; <span class="el_source">EdgeData.java</span></div><h1>EdgeData.java</h1><pre class="source lang-java linenums">package org.command.json.format;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EdgeData {
+<span class="fc" id="L7">  private String version = null;</span>
+<span class="fc" id="L8">  private String dataTitle = null;</span>
+<span class="fc" id="L9">  private List&lt;EdgeElement&gt; edgeElements = null;</span>
+
+  /**
+   * construct EdgeData &lt;br&gt;
+   * Use {@link #setVersion(String)} to set a version &lt;br&gt;
+   * Use {@link #setDataTitle(String)} to set a dataTitle &lt;br&gt;
+   * Use {@link #setEdgeElementList(List)} to set a edgeElementList
+   * 
+   * @param version Version of EdgeData
+   * @param dataTitle Data Title of EdgeData
+   * @param edgeElementList List of EdgeElement in EdgeElement
+   */
+<span class="fc" id="L21">  public EdgeData(String version, String dataTitle, List&lt;EdgeElement&gt; edgeElementList) {</span>
+<span class="fc" id="L22">    this.setVersion(version);</span>
+<span class="fc" id="L23">    this.setDataTitle(dataTitle);</span>
+<span class="fc" id="L24">    this.setEdgeElementList(edgeElementList);</span>
+<span class="fc" id="L25">  }</span>
+
+  /**
+   * construct EdgeData without dataTitle &lt;br&gt;
+   * Use {@link #setVersion(String)} to set a version &lt;br&gt;
+   * Use {@link #setDataTitle(String)} to set a dataTitle &lt;br&gt;
+   * Use {@link #setEdgeElementList(List)} to set a edgeElementList
+   * 
+   * @param version Version of EdgeData
+   * @param dataTitle DataTitle of EdgeData
+   */
+<span class="fc" id="L36">  public EdgeData(String version, String dataTitle) {</span>
+<span class="fc" id="L37">    this.setVersion(version);</span>
+<span class="fc" id="L38">    this.setDataTitle(dataTitle);</span>
+<span class="fc" id="L39">    this.setEdgeElementList(new ArrayList&lt;EdgeElement&gt;());</span>
+<span class="fc" id="L40">  }</span>
+
+  /**
+   * Set version of EdgeData
+   * 
+   * @param version Version of EdgeData
+   */
+  public void setVersion(String version) {
+<span class="fc" id="L48">    this.version = version;</span>
+<span class="fc" id="L49">  }</span>
+
+  /**
+   * Get version of EdgeData
+   * 
+   * @return Version of EdgeData
+   */
+  public String getVersion() {
+<span class="fc" id="L57">    return version;</span>
+  }
+
+  /**
+   * Set list of EdgeElement in EdgeElement
+   * 
+   * @param edgeElements List of EdgeElement in EdgeElement
+   */
+  public void setEdgeElementList(List&lt;EdgeElement&gt; edgeElements) {
+<span class="fc" id="L66">    this.edgeElements = edgeElements;</span>
+<span class="fc" id="L67">  }</span>
+
+  /**
+   * Get list of EdgeElement in EdgeElement
+   * 
+   * @return List of EdgeElement in EdgeElement
+   */
+  public List&lt;EdgeElement&gt; getEdgeElementList() {
+<span class="fc" id="L75">    return edgeElements;</span>
+  }
+
+  /**
+   * Set dataTitle of EdgeData
+   * 
+   * @param dataTitle Data Title of EdgeData
+   */
+  public void setDataTitle(String dataTitle) {
+<span class="fc" id="L84">    this.dataTitle = dataTitle;</span>
+<span class="fc" id="L85">  }</span>
+
+  /**
+   * Get dataTitle of EdgeData
+   * 
+   * @return DataTitle of EdgeData
+   */
+  public String getDataTitle() {
+<span class="fc" id="L93">    return dataTitle;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>datamodel-command-java (Feb 13, 2018 3:01:42 PM)</div></body></html>

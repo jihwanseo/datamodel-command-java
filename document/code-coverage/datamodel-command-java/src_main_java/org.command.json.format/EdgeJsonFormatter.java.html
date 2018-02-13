@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>EdgeJsonFormatter.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">datamodel-command-java (Feb 13, 2018 3:01:42 PM)</a> &gt; <a href="../../index.html" class="el_group">datamodel-command-java</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">org.command.json.format</a> &gt; <span class="el_source">EdgeJsonFormatter.java</span></div><h1>EdgeJsonFormatter.java</h1><pre class="source lang-java linenums">package org.command.json.format;
+
+import java.util.ArrayList;
+import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+<span class="nc" id="L8">public class EdgeJsonFormatter {</span>
+<span class="fc" id="L9">  private static Gson gson = new Gson();</span>
+
+  /**
+   * convert from Object to String
+   * 
+   * @param value Object value of EdgeAttribute
+   * 
+   * @return value if type of value is string, otherwise null
+   */
+  private static Object convertStringFromObject(Object value) {
+<span class="fc bfc" id="L19" title="All 2 branches covered.">    if (value instanceof String) {</span>
+<span class="fc" id="L20">      return String.valueOf(value);</span>
+    } else {
+<span class="fc" id="L22">      return null;</span>
+    }
+  }
+
+  /**
+   * convert from Object to Double
+   * 
+   * @param value Object value of EdgeAttribute
+   * 
+   * @return value if type of value is double, otherwise null
+   */
+  private static Object convertDoubleFromObject(Object value) {
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">    if (value instanceof Double) {</span>
+<span class="fc" id="L35">      return (Double) value;</span>
+    } else {
+<span class="nc" id="L37">      return null;</span>
+    }
+  }
+
+  /**
+   * convert from Object to Float
+   * 
+   * @param value Object value of EdgeAttribute
+   * 
+   * @return value if type of value is float, otherwise null
+   */
+  private static Object convertFloatFromObject(Object value) {
+<span class="fc" id="L49">    Float ret = null;</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">    if (value instanceof Double) {</span>
+<span class="fc" id="L51">      ret = ((Double) value).floatValue();</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">      if (((Double) value).equals(ret.doubleValue()) == false) {</span>
+<span class="nc" id="L53">        ret = null;</span>
+      }
+<span class="nc bnc" id="L55" title="All 2 branches missed.">    } else if (value instanceof Float) {</span>
+<span class="nc" id="L56">      ret = (Float) value;</span>
+    }
+<span class="fc" id="L58">    return ret;</span>
+  }
+
+  /**
+   * convert from Object to Integer
+   * 
+   * @param value Object value of EdgeAttribute
+   * 
+   * @return value if type of value is integer, otherwise null
+   */
+  private static Object convertIntegerFromObject(Object value) {
+<span class="fc" id="L69">    Integer ret = null;</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">    if (value instanceof Double) {</span>
+<span class="fc" id="L71">      ret = ((Double) value).intValue();</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">      if (((Double) value).equals(ret.doubleValue()) == false) {</span>
+<span class="nc" id="L73">        ret = null;</span>
+      }
+<span class="nc bnc" id="L75" title="All 2 branches missed.">    } else if (value instanceof Integer) {</span>
+<span class="nc" id="L76">      ret = (Integer) value;</span>
+    }
+<span class="fc" id="L78">    return ret;</span>
+  }
+
+  /**
+   * convert Object value of EdgeAttribute &lt;br&gt;
+   * Use {@link #convertStringFromObject(Object)} to convert string value of EdgeAttribute &lt;br&gt;
+   * Use {@link #convertDoubleFromObject(Object)} to convert double value of EdgeAttribute &lt;br&gt;
+   * Use {@link #convertFloatFromObject(Object)} to convert float value of EdgeAttribute &lt;br&gt;
+   * Use {@link #convertIntegerFromObject(Object)} to convert integer value of EdgeAttribute &lt;br&gt;
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert list value of EdgeAttribute
+   * 
+   * @param edgeAttribute EdgeAttribute to be converted
+   * 
+   * @return true if it is succeed to convert value of EdgeAttribute, otherwise false
+   */
+  private static boolean convertEdgeAttribute(EdgeAttribute edgeAttribute) {
+<span class="fc" id="L94">    boolean ret = true;</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">    if (edgeAttribute == null) {</span>
+<span class="nc" id="L96">      ret = false;</span>
+<span class="fc bfc" id="L97" title="All 4 branches covered.">    } else if (edgeAttribute.getName() == null || edgeAttribute.getDataType() == null</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        || edgeAttribute.getValue() == null) {</span>
+<span class="fc" id="L99">      ret = false;</span>
+    } else {
+<span class="fc" id="L101">      Object value = null;</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">      if (edgeAttribute.getDataType().equals(EdgeFormatIdentifier.STRING_TYPE.getValue())) {</span>
+<span class="fc" id="L103">        value = convertStringFromObject(edgeAttribute.getValue());</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">      } else if (edgeAttribute.getDataType().equals(EdgeFormatIdentifier.DOUBLE_TYPE.getValue())) {</span>
+<span class="fc" id="L105">        value = convertDoubleFromObject(edgeAttribute.getValue());</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">      } else if (edgeAttribute.getDataType().equals(EdgeFormatIdentifier.FLOAT_TYPE.getValue())) {</span>
+<span class="fc" id="L107">        value = convertFloatFromObject(edgeAttribute.getValue());</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">      } else if (edgeAttribute.getDataType().equals(EdgeFormatIdentifier.INTEGER_TYPE.getValue())) {</span>
+<span class="fc" id="L109">        value = convertIntegerFromObject(edgeAttribute.getValue());</span>
+<span class="fc" id="L110">      } else if (edgeAttribute.getDataType()</span>
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">          .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue())) {</span>
+<span class="fc" id="L112">        value = convertEdgeAttributeListFromObject(edgeAttribute.getValue());</span>
+      }
+<span class="pc bpc" id="L114" title="1 of 4 branches missed.">      if (ret == true &amp;&amp; value != null) {</span>
+<span class="fc" id="L115">        edgeAttribute.setValue(value);</span>
+      } else {
+<span class="fc" id="L117">        ret = false;</span>
+      }
+    }
+
+<span class="fc" id="L121">    return ret;</span>
+  }
+
+  /**
+   * Encode EdgeData To JsonString
+   * 
+   * @param edgeData EdgeData to be encoded
+   * 
+   * @return string of json format if it is succeed to encode EdgeData to JsonString, otherwise null
+   */
+  public static String encodeEdgeDataToJsonString(EdgeData edgeData) {
+<span class="fc" id="L132">    return gson.toJson(edgeData);</span>
+  }
+
+  /**
+   * Decoded JsonString To EdgeData &lt;br&gt;
+   * Use {@link #convertEdgeAttribute(EdgeAttribute)} to convert EdgeAttribute
+   * 
+   * @param json JsonString to be decoded
+   * 
+   * @return EdgeData if it is succeed to decoded JsonString to EdgeData, otherwise null
+   */
+  public static EdgeData decodeJsonStringToEdgeData(String json) {
+<span class="fc" id="L144">    EdgeData edgeData = gson.fromJson(json, EdgeData.class);</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">    if (edgeData != null) {</span>
+<span class="fc bfc" id="L146" title="All 4 branches covered.">      if (edgeData.getDataTitle() == null || edgeData.getVersion() == null</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">          || edgeData.getEdgeElementList() == null) {</span>
+<span class="fc" id="L148">        return null;</span>
+      }
+<span class="fc bfc" id="L150" title="All 2 branches covered.">      for (EdgeElement edgeElement : edgeData.getEdgeElementList()) {</span>
+<span class="pc bpc" id="L151" title="2 of 4 branches missed.">        if (edgeElement.getEdgeAttributeList() == null || edgeElement.getElementTitle() == null) {</span>
+<span class="nc" id="L152">          return null;</span>
+        }
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">        for (EdgeAttribute edgeAttribute : edgeElement.getEdgeAttributeList()) {</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">          if (convertEdgeAttribute(edgeAttribute) == false) {</span>
+<span class="nc" id="L156">            return null;</span>
+          }
+<span class="nc" id="L158">        }</span>
+<span class="fc" id="L159">      }</span>
+    }
+<span class="fc" id="L161">    return edgeData;</span>
+  }
+
+  /**
+   * Encode EdgeElement To JsonString
+   * 
+   * @param edgeElement EdgeElement to be encoded
+   * 
+   * @return string of json format if it is succeed to encode EdgeElement to JsonString, otherwise
+   *         null
+   */
+  public static String encodeEdgeElementToJsonString(EdgeElement edgeElement) {
+<span class="fc" id="L173">    return gson.toJson(edgeElement);</span>
+  }
+
+  /**
+   * Decoded JsonString To EdgeElement &lt;br&gt;
+   * Use {@link #convertEdgeAttribute(EdgeAttribute)} to convert EdgeAttribute
+   * 
+   * @param json JsonString to be decoded
+   * 
+   * @return EdgeElement if it is succeed to decoded JsonString to EdgeElement, otherwise null
+   */
+  public static EdgeElement decodeJsonStringToEdgeElement(String json) {
+<span class="fc" id="L185">    EdgeElement edgeElement = gson.fromJson(json, EdgeElement.class);</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">    if (edgeElement != null) {</span>
+<span class="fc bfc" id="L187" title="All 4 branches covered.">      if (edgeElement.getEdgeAttributeList() == null || edgeElement.getElementTitle() == null) {</span>
+<span class="fc" id="L188">        return null;</span>
+      }
+<span class="fc bfc" id="L190" title="All 2 branches covered.">      for (EdgeAttribute edgeAttribute : edgeElement.getEdgeAttributeList()) {</span>
+<span class="pc bpc" id="L191" title="1 of 2 branches missed.">        if (convertEdgeAttribute(edgeAttribute) == false) {</span>
+<span class="nc" id="L192">          return null;</span>
+        }
+<span class="fc" id="L194">      }</span>
+    }
+<span class="fc" id="L196">    return edgeElement;</span>
+  }
+
+  /**
+   * Encode EdgeAttribute To JsonString
+   * 
+   * @param edgeAttribute EdgeAttribute to be encoded
+   * 
+   * @return string of json format if it is succeed to encode EdgeAttribute to JsonString, otherwise
+   *         null
+   */
+  public static String encodeEdgeAttributeToJsonString(EdgeAttribute edgeAttribute) {
+<span class="fc" id="L208">    return gson.toJson(edgeAttribute);</span>
+  }
+
+  /**
+   * Decoded JsonString To EdgeAttribute &lt;br&gt;
+   * Use {@link #convertEdgeAttribute(EdgeAttribute)} to convert EdgeAttribute
+   * 
+   * @param json JsonString to be decoded
+   * 
+   * @return EdgeAttribute if it is succeed to decoded JsonString to EdgeAttribute, otherwise null
+   */
+  public static EdgeAttribute decodeJsonStringToEdgeAttribute(String json) {
+<span class="fc" id="L220">    EdgeAttribute edgeAttribute = gson.fromJson(json, EdgeAttribute.class);</span>
+<span class="fc bfc" id="L221" title="All 2 branches covered.">    if (edgeAttribute != null) {</span>
+<span class="fc bfc" id="L222" title="All 2 branches covered.">      if (convertEdgeAttribute(edgeAttribute) == false) {</span>
+<span class="fc" id="L223">        return null;</span>
+      }
+    }
+<span class="fc" id="L226">    return edgeAttribute;</span>
+  }
+
+  /**
+   * Get Object Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute &lt;br&gt;
+   * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively &lt;br&gt;
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Object
+   * 
+   * @param edgeAttributeList list of EdgeAttribute
+   * @param edgeAttributeName name of EdgeAttribute
+   * 
+   * @return Object value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
+   */
+  public static Object getObjectValueByName(List&lt;EdgeAttribute&gt; edgeAttributeList,
+      String edgeAttributeName) {
+<span class="fc bfc" id="L242" title="All 4 branches covered.">    if (edgeAttributeList == null || edgeAttributeName == null) {</span>
+<span class="fc" id="L243">      return null;</span>
+    }
+<span class="fc bfc" id="L245" title="All 2 branches covered.">    for (EdgeAttribute edgeAttr : edgeAttributeList) {</span>
+<span class="fc bfc" id="L246" title="All 2 branches covered.">      if (edgeAttr.getName().equals(edgeAttributeName) == true) {</span>
+<span class="fc" id="L247">        return edgeAttr.getValue();</span>
+<span class="fc" id="L248">      } else if (edgeAttr.getDataType()</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">          .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {</span>
+<span class="fc" id="L250">        return getObjectValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),</span>
+            edgeAttributeName);
+      }
+<span class="fc" id="L253">    }</span>
+<span class="fc" id="L254">    return null;</span>
+  }
+
+  /**
+   * Get String Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute &lt;br&gt;
+   * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively &lt;br&gt;
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Object
+   * 
+   * @param edgeAttributeList list of EdgeAttribute
+   * @param edgeAttributeName name of EdgeAttribute
+   * 
+   * @return String value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
+   */
+  public static String getStringValueByName(List&lt;EdgeAttribute&gt; edgeAttributeList,
+      String edgeAttributeName) {
+<span class="fc bfc" id="L270" title="All 4 branches covered.">    if (edgeAttributeList == null || edgeAttributeName == null) {</span>
+<span class="fc" id="L271">      return null;</span>
+    }
+<span class="fc bfc" id="L273" title="All 2 branches covered.">    for (EdgeAttribute edgeAttr : edgeAttributeList) {</span>
+<span class="fc bfc" id="L274" title="All 2 branches covered.">      if (edgeAttr.getName().equals(edgeAttributeName) == true</span>
+<span class="pc bpc" id="L275" title="1 of 2 branches missed.">          &amp;&amp; edgeAttr.getDataType().equalsIgnoreCase(EdgeFormatIdentifier.STRING_TYPE.getValue())) {</span>
+<span class="fc" id="L276">        return String.valueOf(edgeAttr.getValue());</span>
+<span class="fc" id="L277">      } else if (edgeAttr.getDataType()</span>
+<span class="fc bfc" id="L278" title="All 2 branches covered.">          .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {</span>
+<span class="fc" id="L279">        return getStringValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),</span>
+            edgeAttributeName);
+      }
+<span class="fc" id="L282">    }</span>
+<span class="fc" id="L283">    return null;</span>
+  }
+
+  /**
+   * Get Double Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute &lt;br&gt;
+   * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively &lt;br&gt;
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Object
+   * 
+   * @param edgeAttributeList list of EdgeAttribute
+   * @param edgeAttributeName name of EdgeAttribute
+   * 
+   * @return Double value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
+   */
+  public static Double getDoubleValueByName(List&lt;EdgeAttribute&gt; edgeAttributeList,
+      String edgeAttributeName) {
+<span class="fc bfc" id="L299" title="All 4 branches covered.">    if (edgeAttributeList == null || edgeAttributeName == null) {</span>
+<span class="fc" id="L300">      return null;</span>
+    }
+<span class="fc bfc" id="L302" title="All 2 branches covered.">    for (EdgeAttribute edgeAttr : edgeAttributeList) {</span>
+<span class="fc bfc" id="L303" title="All 2 branches covered.">      if (edgeAttr.getName().equals(edgeAttributeName) == true</span>
+<span class="pc bpc" id="L304" title="1 of 2 branches missed.">          &amp;&amp; edgeAttr.getDataType().equalsIgnoreCase(EdgeFormatIdentifier.DOUBLE_TYPE.getValue())) {</span>
+<span class="fc" id="L305">        return (Double) edgeAttr.getValue();</span>
+<span class="fc" id="L306">      } else if (edgeAttr.getDataType()</span>
+<span class="fc bfc" id="L307" title="All 2 branches covered.">          .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {</span>
+<span class="fc" id="L308">        return getDoubleValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),</span>
+            edgeAttributeName);
+      }
+<span class="fc" id="L311">    }</span>
+<span class="fc" id="L312">    return null;</span>
+  }
+
+  /**
+   * Get Integer Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute &lt;br&gt;
+   * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively &lt;br&gt;
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Object
+   * 
+   * @param edgeAttributeList list of EdgeAttribute
+   * @param edgeAttributeName name of EdgeAttribute
+   * 
+   * @return Integer value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
+   */
+  public static Integer getIntegerValueByName(List&lt;EdgeAttribute&gt; edgeAttributeList,
+      String edgeAttributeName) {
+<span class="fc bfc" id="L328" title="All 4 branches covered.">    if (edgeAttributeList == null || edgeAttributeName == null) {</span>
+<span class="fc" id="L329">      return null;</span>
+    }
+<span class="fc bfc" id="L331" title="All 2 branches covered.">    for (EdgeAttribute edgeAttr : edgeAttributeList) {</span>
+<span class="fc bfc" id="L332" title="All 2 branches covered.">      if (edgeAttr.getName().equals(edgeAttributeName) == true &amp;&amp; edgeAttr.getDataType()</span>
+<span class="pc bpc" id="L333" title="1 of 2 branches missed.">          .equalsIgnoreCase(EdgeFormatIdentifier.INTEGER_TYPE.getValue())) {</span>
+<span class="fc" id="L334">        return (Integer) edgeAttr.getValue();</span>
+<span class="fc" id="L335">      } else if (edgeAttr.getDataType()</span>
+<span class="fc bfc" id="L336" title="All 2 branches covered.">          .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {</span>
+
+<span class="fc" id="L338">        return getIntegerValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),</span>
+            edgeAttributeName);
+      }
+<span class="fc" id="L341">    }</span>
+<span class="fc" id="L342">    return null;</span>
+  }
+
+  /**
+   * Get Float Value of EdgeAttribute By name of EdgeAttribute in list of EdgeAttribute &lt;br&gt;
+   * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively &lt;br&gt;
+   * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
+   * Object
+   * 
+   * @param edgeAttributeList list of EdgeAttribute
+   * @param edgeAttributeName name of EdgeAttribute
+   * 
+   * @return Float value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
+   */
+  public static Float getFloatValueByName(List&lt;EdgeAttribute&gt; edgeAttributeList,
+      String edgeAttributeName) {
+<span class="fc bfc" id="L358" title="All 4 branches covered.">    if (edgeAttributeList == null || edgeAttributeName == null) {</span>
+<span class="fc" id="L359">      return null;</span>
+    }
+<span class="fc bfc" id="L361" title="All 2 branches covered.">    for (EdgeAttribute edgeAttr : edgeAttributeList) {</span>
+<span class="fc bfc" id="L362" title="All 2 branches covered.">      if (edgeAttr.getName().equals(edgeAttributeName) == true</span>
+<span class="pc bpc" id="L363" title="1 of 2 branches missed.">          &amp;&amp; edgeAttr.getDataType().equalsIgnoreCase(EdgeFormatIdentifier.FLOAT_TYPE.getValue())) {</span>
+<span class="fc" id="L364">        return (Float) edgeAttr.getValue();</span>
+<span class="fc" id="L365">      } else if (edgeAttr.getDataType()</span>
+<span class="fc bfc" id="L366" title="All 2 branches covered.">          .equals(EdgeFormatIdentifier.ATTRIBUTES_TYPE.getValue()) == true) {</span>
+<span class="fc" id="L367">        return getFloatValueByName(convertEdgeAttributeListFromObject(edgeAttr.getValue()),</span>
+            edgeAttributeName);
+      }
+<span class="fc" id="L370">    }</span>
+<span class="fc" id="L371">    return null;</span>
+  }
+
+  /**
+   * convert from Object to list of EdgeAttrubite &lt;br&gt;
+   * Use {@link #convertEdgeAttribute(EdgeAttribute)} to convert EdgeAttribute
+   * 
+   * @param value Object value of EdgeAttribute
+   * 
+   * @return value if type of value is List of EdgeAttribute, otherwise null
+   */
+  public static List&lt;EdgeAttribute&gt; convertEdgeAttributeListFromObject(Object value) {
+<span class="fc" id="L383">    List&lt;EdgeAttribute&gt; edgeAttributeList = null;</span>
+<span class="pc bpc" id="L384" title="1 of 2 branches missed.">    if (value instanceof List) {</span>
+<span class="fc" id="L385">      List&lt;?&gt; listObj = (List&lt;?&gt;) value;</span>
+<span class="fc bfc" id="L386" title="All 2 branches covered.">      if (listObj.isEmpty() == true) {</span>
+<span class="fc" id="L387">        edgeAttributeList = new ArrayList&lt;EdgeAttribute&gt;();</span>
+<span class="fc bfc" id="L388" title="All 2 branches covered.">      } else if (listObj.get(0).getClass().equals(EdgeAttribute.class)) {</span>
+<span class="fc" id="L389">        edgeAttributeList = new ArrayList&lt;EdgeAttribute&gt;();</span>
+<span class="fc bfc" id="L390" title="All 2 branches covered.">        for (Object obj : listObj) {</span>
+<span class="fc" id="L391">          edgeAttributeList.add((EdgeAttribute) obj);</span>
+<span class="fc" id="L392">        }</span>
+      } else {
+<span class="fc" id="L394">        edgeAttributeList =</span>
+<span class="fc" id="L395">            gson.fromJson(gson.toJson(value), new TypeToken&lt;List&lt;EdgeAttribute&gt;&gt;() {}.getType());</span>
+<span class="fc bfc" id="L396" title="All 2 branches covered.">        for (EdgeAttribute edgeAttribute : edgeAttributeList) {</span>
+<span class="pc bpc" id="L397" title="1 of 2 branches missed.">          if (convertEdgeAttribute(edgeAttribute) == false) {</span>
+<span class="nc" id="L398">            return null;</span>
+          }
+<span class="fc" id="L400">        }</span>
+      }
+    }
+<span class="fc" id="L403">    return edgeAttributeList;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>datamodel-command-java (Feb 13, 2018 3:01:42 PM)</div></body></html>

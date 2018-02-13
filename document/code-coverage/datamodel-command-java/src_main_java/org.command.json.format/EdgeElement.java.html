@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>EdgeElement.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">datamodel-command-java (Feb 13, 2018 3:01:42 PM)</a> &gt; <a href="../../index.html" class="el_group">datamodel-command-java</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">org.command.json.format</a> &gt; <span class="el_source">EdgeElement.java</span></div><h1>EdgeElement.java</h1><pre class="source lang-java linenums">package org.command.json.format;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EdgeElement {
+<span class="fc" id="L7">  private String elementTitle = null;</span>
+<span class="fc" id="L8">  private List&lt;EdgeAttribute&gt; edgeAttributes = null;</span>
+
+  /**
+   * construct EdgeElement without edgeAttributeList &lt;br&gt;
+   * Use {@link #setElementTitle(String)} to set a elementTitle &lt;br&gt;
+   * Use {@link #setEdgeAttributeList(List)} to set a edgeAttributeList
+   * 
+   * @param elementTitle ElementTitle of EdgeElement
+   */
+<span class="fc" id="L17">  public EdgeElement(String elementTitle) {</span>
+<span class="fc" id="L18">    this.setElementTitle(elementTitle);</span>
+<span class="fc" id="L19">    this.setEdgeAttributeList(new ArrayList&lt;EdgeAttribute&gt;());</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   * construct EdgeElement &lt;br&gt;
+   * Use {@link #setElementTitle(String)} to set a elementTitle &lt;br&gt;
+   * Use {@link #setEdgeAttributeList(List)} to set a edgeAttributeList
+   * 
+   * @param elementTitle ElementTitle of EdgeElement
+   * @param edgeAttributes List of edgeAttributeList in EdgeElement
+   */
+<span class="fc" id="L30">  public EdgeElement(String elementTitle, List&lt;EdgeAttribute&gt; edgeAttributes) {</span>
+<span class="fc" id="L31">    this.setElementTitle(elementTitle);</span>
+<span class="fc" id="L32">    this.setEdgeAttributeList(edgeAttributes);</span>
+<span class="fc" id="L33">  }</span>
+
+  /**
+   * Set List of edgeAttributeList in EdgeElement
+   * 
+   * @param edgeAttributes List of edgeAttributeList in EdgeElement
+   */
+  public void setEdgeAttributeList(List&lt;EdgeAttribute&gt; edgeAttributes) {
+<span class="fc" id="L41">    this.edgeAttributes = edgeAttributes;</span>
+<span class="fc" id="L42">  }</span>
+
+  /**
+   * Get List of edgeAttributeList in EdgeElement
+   * 
+   * @return List of edgeAttributeList in EdgeElement
+   */
+  public List&lt;EdgeAttribute&gt; getEdgeAttributeList() {
+<span class="fc" id="L50">    return edgeAttributes;</span>
+  }
+
+  /**
+   * Get ElementTitle of EdgeElement
+   * 
+   * @return ElementTitle of EdgeElement
+   */
+  public String getElementTitle() {
+<span class="fc" id="L59">    return elementTitle;</span>
+  }
+
+  /**
+   * Set ElementTitle of EdgeElement
+   * 
+   * @param elementTitle of EdgeElement
+   */
+  public void setElementTitle(String elementTitle) {
+<span class="fc" id="L68">    this.elementTitle = elementTitle;</span>
+<span class="fc" id="L69">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>datamodel-command-java (Feb 13, 2018 3:01:42 PM)</div></body></html>
