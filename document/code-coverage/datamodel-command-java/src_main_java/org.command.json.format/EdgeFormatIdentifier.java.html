@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>EdgeFormatIdentifier.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">datamodel-command-java (Feb 13, 2018 3:01:42 PM)</a> &gt; <a href="../../index.html" class="el_group">datamodel-command-java</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">org.command.json.format</a> &gt; <span class="el_source">EdgeFormatIdentifier.java</span></div><h1>EdgeFormatIdentifier.java</h1><pre class="source lang-java linenums">package org.command.json.format;
+
+<span class="pc" id="L3">public enum EdgeFormatIdentifier {</span>
+<span class="fc" id="L4">  DEFAULT_VERSION(0, &quot;edge-1.0&quot;, &quot;edge-json-format version&quot;),</span>
+
+  //Data Title
+<span class="fc" id="L7">  OPCUA_TYPE(10, &quot;opcua&quot;, &quot;opcua protocol type&quot;), </span>
+<span class="fc" id="L8">  CNC_TYPE(11, &quot;cnc&quot;, &quot;CNC protocol type&quot;),</span>
+<span class="fc" id="L9">  PLC_TYPE(12, &quot;plc&quot;, &quot;PLC protocol type&quot;),</span>
+
+  //Data Type
+<span class="fc" id="L12">  ATTRIBUTES_TYPE(20, &quot;attributes&quot;, &quot;attribute list data type&quot;),</span>
+<span class="fc" id="L13">  STRING_TYPE(21, &quot;string&quot;, &quot;string data type&quot;),</span>
+<span class="fc" id="L14">  INTEGER_TYPE(22, &quot;integer&quot;, &quot;integer data type&quot;),</span>
+<span class="fc" id="L15">  FLOAT_TYPE(23, &quot;float&quot;, &quot;float data type&quot;),</span>
+<span class="fc" id="L16">  DOUBLE_TYPE(24, &quot;double&quot;, &quot;double data type&quot;);</span>
+  
+  private int code;
+  private String value;
+  private String description;
+
+  /**
+   * construct EdgeFormatIdentifier
+   * 
+   * @param code Format code number of EdgeFormatIdentifier
+   * @param value Format value of EdgeFormatIdentifier
+   * @param description Format description of EdgeFormatIdentifier
+   */
+<span class="fc" id="L29">  private EdgeFormatIdentifier(int code, String value, String description) {</span>
+<span class="fc" id="L30">    this.code = code;</span>
+<span class="fc" id="L31">    this.value = value;</span>
+<span class="fc" id="L32">    this.description = description;</span>
+<span class="fc" id="L33">  }</span>
+
+  /**
+   * Get format code number of EdgeFormatIdentifier
+   * 
+   * @return Format code number of EdgeFormatIdentifier
+   */
+  public int getCode() {
+<span class="nc" id="L41">    return code;</span>
+  }
+
+  /**
+   * Get format value of EdgeFormatIdentifier
+   * 
+   * @return Format value of EdgeFormatIdentifier
+   */
+  public String getValue() {
+<span class="fc" id="L50">    return value;</span>
+  }
+
+  /**
+   * Get format description of EdgeFormatIdentifier
+   * 
+   * @return Format description of EdgeFormatIdentifier
+   */
+  public String getDescription() {
+<span class="nc" id="L59">    return description;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>datamodel-command-java (Feb 13, 2018 3:01:42 PM)</div></body></html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>EdgeAttribute.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">datamodel-command-java (Feb 13, 2018 3:01:42 PM)</a> &gt; <a href="../../index.html" class="el_group">datamodel-command-java</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">org.command.json.format</a> &gt; <span class="el_source">EdgeAttribute.java</span></div><h1>EdgeAttribute.java</h1><pre class="source lang-java linenums">package org.command.json.format;
+
+public class EdgeAttribute {
+<span class="fc" id="L4">  private String name = null;</span>
+<span class="fc" id="L5">  private String dataType = null;</span>
+<span class="fc" id="L6">  private Object value = null;</span>
+
+  /**
+   * construct EdgeAttribute &lt;br&gt;
+   * Use {@link #setName(String)} to set a name &lt;br&gt;
+   * Use {@link #setDataType(String)} to set a dataType &lt;br&gt;
+   * Use {@link #setValue(Object)} to set a value
+   * 
+   * @param name Name of EdgeAttribute
+   * @param dataType DataType of EdgeAttribute
+   * @param value Value of EdgeAttribute
+   */
+<span class="fc" id="L18">  public EdgeAttribute(String name, String dataType, Object value) {</span>
+<span class="fc" id="L19">    this.setName(name);</span>
+<span class="fc" id="L20">    this.setDataType(dataType);</span>
+<span class="fc" id="L21">    this.setValue(value);</span>
+<span class="fc" id="L22">  }</span>
+
+  /**
+   * Get name of EdgeAttribute
+   * 
+   * @return Name of EdgeAttribute
+   */
+  public String getName() {
+<span class="fc" id="L30">    return name;</span>
+  }
+
+  /**
+   * Set name of EdgeAttribute
+   * 
+   * @param name Name of EdgeAttribute
+   */
+  public void setName(String name) {
+<span class="fc" id="L39">    this.name = name;</span>
+<span class="fc" id="L40">  }</span>
+
+  /**
+   * Get dataType of EdgeAttribute
+   * 
+   * @return DataType of EdgeAttribute
+   */
+  public String getDataType() {
+<span class="fc" id="L48">    return dataType;</span>
+  }
+
+  /**
+   * Set dataType of EdgeAttribute
+   * 
+   * @param dataType DataType of EdgeAttribute
+   */
+  public void setDataType(String dataType) {
+<span class="fc" id="L57">    this.dataType = dataType;</span>
+<span class="fc" id="L58">  }</span>
+
+  /**
+   * Get value of EdgeAttribute
+   * 
+   * @return Value of  EdgeAttribute
+   */
+  public Object getValue() {
+<span class="fc" id="L66">    return value;</span>
+  }
+
+  /**
+   * Set value of EdgeAttribute
+   * 
+   * @param value Value of EdgeAttribute
+   */
+  public void setValue(Object value) {
+<span class="fc" id="L75">    this.value = value;</span>
+<span class="fc" id="L76">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>datamodel-command-java (Feb 13, 2018 3:01:42 PM)</div></body></html>

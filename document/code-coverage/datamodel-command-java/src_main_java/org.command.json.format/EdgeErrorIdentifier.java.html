@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>EdgeErrorIdentifier.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">datamodel-command-java (Feb 13, 2018 3:01:42 PM)</a> &gt; <a href="../../index.html" class="el_group">datamodel-command-java</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">org.command.json.format</a> &gt; <span class="el_source">EdgeErrorIdentifier.java</span></div><h1>EdgeErrorIdentifier.java</h1><pre class="source lang-java linenums">package org.command.json.format;
+
+import java.util.List;
+
+<span class="nc" id="L5">public enum EdgeErrorIdentifier {</span>
+<span class="nc" id="L6">  EDGE_DS_ERROR_RESPONSE_NULL(0, &quot;edge_ds_error_response_null&quot;,</span>
+<span class="nc" id="L7">      &quot;Edge Device Service Response is null&quot;), EDGE_DS_ERROR_RESPONSE_TIME_OUT(1,</span>
+          &quot;edge_ds_error_time_out&quot;,
+<span class="nc" id="L9">          &quot;Edge Device Service Response is time out&quot;), EDGE_DS_ERROR_INVALID_PARAM(2,</span>
+              &quot;edge_ds_error_invalid_param&quot;,
+<span class="nc" id="L11">              &quot;Edge Device Service Reuqest is invalid parameter&quot;), EDGE_RESPONSE_OK(30,</span>
+                  &quot;edge_response_ok&quot;, &quot;Edge Device Service Response is good&quot;);
+
+  private int code;
+  private String value;
+  private String description;
+
+  /**
+   * construct EdgeErrorIdentifier
+   * 
+   * @param code Error code number of EdgeErrorIdentifier
+   * @param value Error message of EdgeErrorIdentifier
+   * @param description Error description of EdgeErrorIdentifier
+   */
+<span class="nc" id="L25">  private EdgeErrorIdentifier(int code, String value, String description) {</span>
+<span class="nc" id="L26">    this.code = code;</span>
+<span class="nc" id="L27">    this.value = value;</span>
+<span class="nc" id="L28">    this.description = description;</span>
+<span class="nc" id="L29">  }</span>
+
+  /**
+   * Get error code number of EdgeErrorIdentifier
+   * 
+   * @return Error code number of EdgeErrorIdentifier
+   */
+  public int getCode() {
+<span class="nc" id="L37">    return code;</span>
+  }
+
+  /**
+   * Get error message of EdgeErrorIdentifier
+   * 
+   * @return Error message of EdgeErrorIdentifier
+   */
+  public String getValue() {
+<span class="nc" id="L46">    return value;</span>
+  }
+
+  /**
+   * Get error description of EdgeErrorIdentifier
+   * 
+   * @return Error description of EdgeErrorIdentifier
+   */
+  public String getDescription() {
+<span class="nc" id="L55">    return description;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>datamodel-command-java (Feb 13, 2018 3:01:42 PM)</div></body></html>
