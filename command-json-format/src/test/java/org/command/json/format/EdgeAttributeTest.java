@@ -79,7 +79,7 @@ public class EdgeAttributeTest {
         EdgeFormatIdentifier.STRING_TYPE.getValue(), null);
     testEdgeAttributeDataTypeAndValueUnmatch =
         new EdgeAttribute(TestDefaultValue.UNMATCHED_NAME.getValue(),
-            EdgeFormatIdentifier.STRING_TYPE.getValue(), TestDefaultValue.FLOAT_VALUE);
+            EdgeFormatIdentifier.FLOAT_TYPE.getValue(), TestDefaultValue.STRING_VALUE);
 
   }
 

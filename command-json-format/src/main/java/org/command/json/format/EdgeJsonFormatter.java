@@ -19,6 +19,7 @@ package org.command.json.format;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -27,72 +28,68 @@ public class EdgeJsonFormatter {
 
   /**
    * convert from Object to String
-   * 
+   *
    * @param value Object value of EdgeAttribute
-   * 
+   *
    * @return value if type of value is string, otherwise null
    */
   private static Object convertStringFromObject(Object value) {
-    if (value instanceof String) {
+    try {
       return String.valueOf(value);
-    } else {
+    } catch (Exception e) {
       return null;
     }
   }
 
   /**
    * convert from Object to Double
-   * 
+   *
    * @param value Object value of EdgeAttribute
-   * 
+   *
    * @return value if type of value is double, otherwise null
    */
+
   private static Object convertDoubleFromObject(Object value) {
-    if (value instanceof Double) {
-      return (Double) value;
-    } else {
+    try {
+      return Double.parseDouble(value.toString());
+    } catch(NumberFormatException e){
+      return null;
+    } catch(Exception e) {
       return null;
     }
   }
 
   /**
    * convert from Object to Float
-   * 
+   *
    * @param value Object value of EdgeAttribute
-   * 
+   *
    * @return value if type of value is float, otherwise null
    */
   private static Object convertFloatFromObject(Object value) {
-    Float ret = null;
-    if (value instanceof Double) {
-      ret = ((Double) value).floatValue();
-      if (((Double) value).equals(ret.doubleValue()) == false) {
-        ret = null;
-      }
-    } else if (value instanceof Float) {
-      ret = (Float) value;
+    try {
+      return Float.parseFloat(value.toString());
+    } catch(NumberFormatException e){
+      return null;
+    } catch(Exception e) {
+      return null;
     }
-    return ret;
   }
 
   /**
    * convert from Object to Integer
-   * 
+   *
    * @param value Object value of EdgeAttribute
-   * 
+   *
    * @return value if type of value is integer, otherwise null
    */
   private static Object convertIntegerFromObject(Object value) {
-    Integer ret = null;
-    if (value instanceof Double) {
-      ret = ((Double) value).intValue();
-      if (((Double) value).equals(ret.doubleValue()) == false) {
-        ret = null;
-      }
-    } else if (value instanceof Integer) {
-      ret = (Integer) value;
+    Object convertValue = EdgeJsonFormatter.convertFloatFromObject(value);
+    if(convertValue == null) {
+      return null;
+    } else {
+      return Math.round((float) convertValue);
     }
-    return ret;
   }
 
   /**
@@ -102,9 +99,9 @@ public class EdgeJsonFormatter {
    * Use {@link #convertFloatFromObject(Object)} to convert float value of EdgeAttribute <br>
    * Use {@link #convertIntegerFromObject(Object)} to convert integer value of EdgeAttribute <br>
    * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert list value of EdgeAttribute
-   * 
+   *
    * @param edgeAttribute EdgeAttribute to be converted
-   * 
+   *
    * @return true if it is succeed to convert value of EdgeAttribute, otherwise false
    */
   private static boolean convertEdgeAttribute(EdgeAttribute edgeAttribute) {
@@ -140,9 +137,9 @@ public class EdgeJsonFormatter {
 
   /**
    * Encode EdgeData To JsonString
-   * 
+   *
    * @param edgeData EdgeData to be encoded
-   * 
+   *
    * @return string of json format if it is succeed to encode EdgeData to JsonString, otherwise null
    */
   public static String encodeEdgeDataToJsonString(EdgeData edgeData) {
@@ -152,9 +149,9 @@ public class EdgeJsonFormatter {
   /**
    * Decoded JsonString To EdgeData <br>
    * Use {@link #convertEdgeAttribute(EdgeAttribute)} to convert EdgeAttribute
-   * 
+   *
    * @param json JsonString to be decoded
-   * 
+   *
    * @return EdgeData if it is succeed to decoded JsonString to EdgeData, otherwise null
    */
   public static EdgeData decodeJsonStringToEdgeData(String json) {
@@ -180,9 +177,9 @@ public class EdgeJsonFormatter {
 
   /**
    * Encode EdgeElement To JsonString
-   * 
+   *
    * @param edgeElement EdgeElement to be encoded
-   * 
+   *
    * @return string of json format if it is succeed to encode EdgeElement to JsonString, otherwise
    *         null
    */
@@ -193,9 +190,9 @@ public class EdgeJsonFormatter {
   /**
    * Decoded JsonString To EdgeElement <br>
    * Use {@link #convertEdgeAttribute(EdgeAttribute)} to convert EdgeAttribute
-   * 
+   *
    * @param json JsonString to be decoded
-   * 
+   *
    * @return EdgeElement if it is succeed to decoded JsonString to EdgeElement, otherwise null
    */
   public static EdgeElement decodeJsonStringToEdgeElement(String json) {
@@ -215,9 +212,9 @@ public class EdgeJsonFormatter {
 
   /**
    * Encode EdgeAttribute To JsonString
-   * 
+   *
    * @param edgeAttribute EdgeAttribute to be encoded
-   * 
+   *
    * @return string of json format if it is succeed to encode EdgeAttribute to JsonString, otherwise
    *         null
    */
@@ -228,9 +225,9 @@ public class EdgeJsonFormatter {
   /**
    * Decoded JsonString To EdgeAttribute <br>
    * Use {@link #convertEdgeAttribute(EdgeAttribute)} to convert EdgeAttribute
-   * 
+   *
    * @param json JsonString to be decoded
-   * 
+   *
    * @return EdgeAttribute if it is succeed to decoded JsonString to EdgeAttribute, otherwise null
    */
   public static EdgeAttribute decodeJsonStringToEdgeAttribute(String json) {
@@ -248,10 +245,10 @@ public class EdgeJsonFormatter {
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
    * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
-   * 
+   *
    * @param edgeAttributeList list of EdgeAttribute
    * @param edgeAttributeName name of EdgeAttribute
-   * 
+   *
    * @return Object value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
    */
   public static Object getObjectValueByName(List<EdgeAttribute> edgeAttributeList,
@@ -276,10 +273,10 @@ public class EdgeJsonFormatter {
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
    * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
-   * 
+   *
    * @param edgeAttributeList list of EdgeAttribute
    * @param edgeAttributeName name of EdgeAttribute
-   * 
+   *
    * @return String value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
    */
   public static String getStringValueByName(List<EdgeAttribute> edgeAttributeList,
@@ -305,10 +302,10 @@ public class EdgeJsonFormatter {
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
    * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
-   * 
+   *
    * @param edgeAttributeList list of EdgeAttribute
    * @param edgeAttributeName name of EdgeAttribute
-   * 
+   *
    * @return Double value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
    */
   public static Double getDoubleValueByName(List<EdgeAttribute> edgeAttributeList,
@@ -334,10 +331,10 @@ public class EdgeJsonFormatter {
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
    * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
-   * 
+   *
    * @param edgeAttributeList list of EdgeAttribute
    * @param edgeAttributeName name of EdgeAttribute
-   * 
+   *
    * @return Integer value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
    */
   public static Integer getIntegerValueByName(List<EdgeAttribute> edgeAttributeList,
@@ -364,10 +361,10 @@ public class EdgeJsonFormatter {
    * Use {@link #getObjectValueByName(List, String)} to find EdgeAttribute recursively <br>
    * Use {@link #convertEdgeAttributeListFromObject(Object)} to convert EdgeAttrubiteList From
    * Object
-   * 
+   *
    * @param edgeAttributeList list of EdgeAttribute
    * @param edgeAttributeName name of EdgeAttribute
-   * 
+   *
    * @return Float value of EdgeAttribute if it is succeed to find EdgeAttribute, otherwise null
    */
   public static Float getFloatValueByName(List<EdgeAttribute> edgeAttributeList,
@@ -391,9 +388,9 @@ public class EdgeJsonFormatter {
   /**
    * convert from Object to list of EdgeAttrubite <br>
    * Use {@link #convertEdgeAttribute(EdgeAttribute)} to convert EdgeAttribute
-   * 
+   *
    * @param value Object value of EdgeAttribute
-   * 
+   *
    * @return value if type of value is List of EdgeAttribute, otherwise null
    */
   public static List<EdgeAttribute> convertEdgeAttributeListFromObject(Object value) {
